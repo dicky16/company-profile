@@ -32,7 +32,8 @@
             "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/",
             "svgExt": ".svg",
             "source": {
-                "concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10"
+                "concatemoji": "{{ url('assets/user/assets/js/wp-emoji-release.min.js?ver=4.9.10') }}"
+                // "concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10"
             }
         };
         ! function (a, b, c) {

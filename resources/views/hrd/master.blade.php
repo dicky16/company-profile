@@ -10,11 +10,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/dist/css/adminlte.min.css') }}">
     <!-- fullCalendar -->
-    <link rel="stylesheet" href="{{ asset('admin/plugins/fullcalendar/main.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/plugins/fullcalendar/main.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     @stack('css')
@@ -33,13 +33,13 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{ asset('admin/images/armas_globe.svg') }}"
+                        <img src="{{ url('assets/admin/images/armas_globe.svg') }}"
                             class="user-image img-circle elevation-2" alt="User Image">
                         <span class="d-none d-md-inline">{{session('nama')}}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <li class="user-header bg-primary">
-                            <img src="{{ asset('admin/images/armas_globe.svg') }}"
+                            <img src="{{ url('assets/admin/images/armas_globe.svg') }}"
                                 class="img-circle elevation-2" alt="User Image">
                             <p>
                                 {{session('nama')}}
@@ -59,7 +59,7 @@
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a href="{{url('hrd')}}" class="brand-link">
-                <img src="{{ asset('admin/images/armas_globe.svg') }}" alt="AdminLTE Logo"
+                <img src="{{ url('assets/admin/images/armas_globe.svg') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">PT ARMAS</span>
             </a>
@@ -315,14 +315,14 @@
     </div>
 
     <!-- jQuery -->
-    <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ url('assets/admin/dist/js/adminlte.min.js') }}"></script>
     <!-- fullCalendar 2.2.5 -->
-    <script src="{{ asset('admin/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('admin/plugins/fullcalendar/main.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/fullcalendar/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

@@ -1,9 +1,9 @@
 @extends('user.master')
 @push('css')
-<!-- <link href="{{ asset('user/css/styles.css') }}" rel="stylesheet"> -->
-<link href="{{ asset('user/css/responsive.css') }}" rel="stylesheet">
-<link href="{{ asset('user/css/custom.css') }}" rel="stylesheet">
-<link href="{{ asset('user/css/font-awesome.min.css') }}" rel="stylesheet">
+<!-- <link href="{{ url('assets/user/css/styles.css') }}" rel="stylesheet"> -->
+<link href="{{ url('assets/user/css/responsive.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/custom.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/font-awesome.min.css') }}" rel="stylesheet">
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 @endpush
 @section('content')
@@ -16,12 +16,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide height-half"
-                    style="background-image: url({{ asset('user/uploads/contact-splash.jpg') }});">
+                    style="background-image: url({{ url('assets/user/uploads/contact-splash.jpg') }});">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-                                        src="{{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+                                        src="{{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
                             </ul>
                         </div>
                         <div class="featured-content-paragraph">
@@ -208,7 +208,7 @@
                 <div class="row justify-content-center mt10">
                     <div class="2">
                         <input type="file" class="form-control" accept="image/*" onchange="previewImage(event)"
-                            name="foto" required>
+                            name="foto" >
                     </div>
                 </div>
             </div>
@@ -221,34 +221,58 @@
                                 <!-- <form action="#"> -->
 
                                 <ul class="list-unstyled job-registration">
-                                    <li><strong>Nama lengkap</strong><input type="text" name="nama_lengkap"
+                                    <li><strong>Nama lengkap <i class="text-danger">*</i></strong><input type="text" name="nama_lengkap" 
                                             placeholder="[khansa lungit]" value="{{session('nama_lengkap')}}">
+                                            @error('nama_lengkap')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                     </li>
-                                    <li><strong>Tanggal lahir:</strong><input type="date"
+                                    <li><strong>Tanggal lahir <i class="text-danger">*</i></strong><input type="date"
                                             value="{{session('tanggal_lahir')}}" name="tanggal_lahir"
-                                            placeholder="[25/06/2002]">
+                                            placeholder="[25/06/2002]" >
+                                            @error('tanggal_lahir')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                     </li>
-                                    <li><strong>NIK</strong><input type="text" name="nik" value="{{session('nik')}}"
-                                            placeholder="[10999099]">
+                                    <li><strong>NIK <i class="text-danger">*</i></strong><input type="text" name="nik" value="{{session('nik')}}"
+                                            placeholder="[1099909990999099]" >
+                                            @error('nik')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                     </li>
-                                    <li><strong>Umur:</strong><input type="text" name="umur" value="{{session('umur')}}"
-                                            placeholder="[18 tahun]">
+                                    <li><strong>Umur <i class="text-danger">*</i></strong><input type="text" name="umur" value="{{session('umur')}}"
+                                            placeholder="[18 tahun]" >
+                                            @error('umur')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
                                     </li>
-                                    <li><strong>Gender:</strong>
-                                        <select class="form-select" name="jenis_kelamin" id="">
+                                    <li><strong>Gender <i class="text-danger">*</i></strong>
+                                        <select class="form-select" name="jenis_kelamin" id="" >
                                             <option value="Perempuan">Perempuan</option>
                                             <option value="Laki-laki">Laki-laki</option>
                                         </select>
-
+                                        @error('jenis_kelamin')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </li>
-                                    <li><strong>No Telpon:</strong><input type="text" name="no_tlp"
-                                            placeholder="[082262200182]" value="{{session('no_tlp')}}"></li>
-                                    <li><strong>E-mail</strong><input type="text" name="email"
-                                            placeholder="[admin@gmail.com]" value="{{session('email')}}"></li>
-
-                                    <li><strong>Link Sosial media</strong><input type="text"
-                                            placeholder="[admin.biolinky.com]" name="link_sosmed"
-                                            value="{{session('link_sosmed')}}"></li>
+                                    <li><strong>No Telpon <i class="text-danger">*</i></strong><input type="text" name="no_tlp" 
+                                        placeholder="[082262200182]" value="{{session('no_tlp')}}">
+                                        @error('no_tlp')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </li>
+                                    <li><strong>E-mail <i class="text-danger">*</i></strong><input type="text" name="email" 
+                                        placeholder="[admin@gmail.com]" value="{{session('email')}}">
+                                        @error('email')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </li>
+                                    <li><strong>Link Sosial media <i class="text-danger">*</i></strong><input type="text" 
+                                        placeholder="[admin.biolinky.com]" name="link_sosmed" value="{{session('link_sosmed')}}">
+                                        @error('link_sosmed')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </li>
 
                                 </ul>
                                 <!-- </form> -->
@@ -264,11 +288,14 @@
                                 <!-- <form action="#"> -->
                                 <!-- <div class="form-banner-button"> -->
                                 <ul>
-                                    <li><strong>Sudah pernah bekerja?</strong>
-                                        <select class="form-select" name="sudah_bekerja" onchange="hideStatusKerja();" id="statusKerja">
+                                    <li><strong>Sudah pernah bekerja? <i class="text-danger">*</i></strong>
+                                        <select class="form-select" name="sudah_bekerja" onchange="hideStatusKerja();" id="statusKerja" >
                                             <option value="iya">Pernah</option>
                                             <option value="belum">Belum</option>
                                         </select>
+                                        @error('sudah_bekerja')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </li>
                                     <li class="status"><strong>Terakhir bekerja di PT?</strong><input type="text"
                                             placeholder="[PT.Teknologi]" value="{{session('terakhir_bekerja')}}"
@@ -283,11 +310,12 @@
                                     <li class="status"><strong>Gaji terakhir?</strong><input type="text" placeholder="[55000000]"
                                             name="gaji_terakhir" value="{{session('gaji_terakhir')}}"></li> </br>
                                     <li>
-
                                         <form id="form1" name="form1" method="post" action="">
-                                        
-                                                <strong>Upload CV Anda</strong>
-                                                <input class="form-control" type="file" name="cv" required>
+                                        <strong>Upload CV Anda <i class="text-danger">*</i></strong>
+                                        <input class="form-control" type="file" name="cv" >
+                                        @error('cv')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </li> </br>
                                     <ol start="1" type="1">
                                                 <li>Four Kids,Oliver,Rachel,Sarah,and Todd,were playing upstairs when
@@ -303,10 +331,38 @@
 
                                                 <ol start="1" type="a">
                                                     <i>
-                                                        <li><input type="radio" name="nilai_soal" value="a">Oliver</li>
-                                                        <li><input type="radio" name="nilai_soal" value="b">Rachel</li>
-                                                        <li><input type="radio" name="nilai_soal" value="c">Serah</li>
-                                                        <li><input type="radio" name="nilai_soal" value="d">Todd</li>
+                                                        <li>
+                                                            <div class="form-group row align-items-center">
+                                                                <label for="pilihan-1" class="col-sm-4 col-form-label">Oliver</label>
+                                                                <div class="col-sm-2">
+                                                                    <input type="radio" name="nilai_soal" id="pilihan-1" value="a">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-group row align-items-center">
+                                                                <label for="pilihan-2" class="col-sm-4 col-form-label">Rachel</label>
+                                                                <div class="col-sm-2">
+                                                                    <input type="radio" name="nilai_soal" id="pilihan-2" value="b">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-group row align-items-center">
+                                                                <label for="pilihan-3" class="col-sm-4 col-form-label">Sarah</label>
+                                                                <div class="col-sm-2">
+                                                                    <input type="radio" name="nilai_soal" id="pilihan-3" value="c">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="form-group row align-items-center">
+                                                                <label for="pilihan-4" class="col-sm-4 col-form-label">Tod</label>
+                                                                <div class="col-sm-2">
+                                                                    <input type="radio" name="nilai_soal" id="pilihan-4" value="d">
+                                                                </div>
+                                                            </div>
+                                                        </li>
                                                     </i>
                                                 </ol>
                                                 <br>
@@ -369,7 +425,7 @@
         if (skill) {
             $('#listSkill').append('<tr id="row' + i + ' mt5" class="dynamic-added row' + i +
                 '"><td><input type="text" value="' + skill +
-                '" name="skill[]" placeholder="Skill" class="form-control name_list" required /></td><td><button type="button" name="remove" id="' +
+                '" name="skill[]" placeholder="Skill" class="form-control name_list"  /></td><td><button type="button" name="remove" id="' +
                 i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
             $("#skill").val("");
         } else {
@@ -390,5 +446,14 @@
         'error'
     )
 </script>
+@endif
+@if ($errors->any())
+    <script>
+        Swal.fire(
+        'Error!',
+        'Tolong lengkapi dan check kembali data yang anda isi.',
+        'error'
+    )
+    </script>
 @endif
 @endpush

@@ -12,22 +12,22 @@
     <title>PT. Armas Logistic Service</title>
     @stack("css")
     <!-- daft (bootstrap) core CSS -->
-    <link href="{{ asset('user/assets/css/daft.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/daft.css') }}" rel="stylesheet">
     <!-- ampersand (font) core CSS -->
-    <link href="{{ asset('user/assets/css/ampersand.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/ampersand.css') }}" rel="stylesheet">
     <!-- dapper (custom) core CSS -->
-    <link href="{{ asset('user/assets/css/dapper.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/dapper.css') }}" rel="stylesheet">
     <!-- swiper -->
-    <link href="{{ asset('user/assets/css/swiper.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/swiper.css') }}" rel="stylesheet">
     <!-- vivus -->
-    <link href="{{ asset('user/assets/css/vivus.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/vivus.css') }}" rel="stylesheet">
     <!-- odometer -->
     <!-- custom -->
-    <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/user/css/custom.css') }}">
 
-    <link href="{{ asset('user/assets/css/odometer-textroller.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/css/odometer-textroller.css') }}" rel="stylesheet">
     <!-- fontawesome pro 5.0.9 -->
-    <link href="{{ asset('user/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
     <link rel='dns-prefetch' href='../../s.w.org/index.html' />
     <link rel="alternate" type="application/rss+xml" title="PT. Armas Logistic Sevice &raquo; Home Comments Feed" />
     <script type="text/javascript">
@@ -37,7 +37,8 @@
             "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/",
             "svgExt": ".svg",
             "source": {
-                "concatemoji": "https://armas.protim-tech.com/js\/wp-emoji-release.min.js?ver=4.9.10"
+                "concatemoji": "{{ url('assets/user/assets/js/wp-emoji-release.min.js?ver=4.9.10') }}"
+                // "concatemoji": "https://armas.protim-tech.com/js\/wp-emoji-release.min.js?ver=4.9.10"
             }
         };
         ! function (a, b, c) {
@@ -140,7 +141,7 @@
 
 <?php 
     $servername = "localhost";
-    $database = "armas";
+    $database = "db_armas";
     $username = "root";
     $password = "";
     // Create connection
@@ -178,7 +179,7 @@
         id="header">
         <a class="navbar-brand mr-auto" href="/">
             <img id="main-logo" class="img-fluid ease-in-out-5 img-logo"
-                src="{{ asset('user/assets/images/svg/armas_globe.svg') }}" />
+                src="{{ url('assets/user/assets/images/svg/armas_globe.svg') }}" />
         </a>
         <button id="mobile-button" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -230,7 +231,7 @@
 
     <!--Footer-->
     <footer id="footer" class="text-white bg-black"
-        style="background: url({{ asset('user/assets/images/svg/armas_footer.svg') }}); background-repeat: no-repeat; background-size: cover; background-position: center !important;">
+        style="background: url({{ url('assets/user/assets/images/svg/armas_footer.svg') }}); background-repeat: no-repeat; background-size: cover; background-position: center !important;">
 
         <div class="container-fluid" style="border-top: 10px solid white;">
             <div class="row">
@@ -285,7 +286,7 @@
                                 </div>
                                 <div class="col-xl-3 p-0 mb-auto text-right">
                                     <div class="footer-logo text-center-mobile">
-                                        <img class="img-fluid" src="{{ asset('user/img/armas_globe.svg') }}" />
+                                        <img class="img-fluid" src="{{ url('assets/user/img/armas_globe.svg') }}" />
                                     </div>
                                 </div>
                             </div>
@@ -369,37 +370,37 @@
 
     <!-- ================================================== -->
 
-    <!-- <script src="{{ asset('user/assets/js/jquery-3.3.1.js') }}"></script> -->
+    <!-- <script src="{{ url('assets/user/assets/js/jquery-3.3.1.js') }}"></script> -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script> -->
 
-    <script src="{{ asset('user/assets/js/parallax.js') }}"></script>
-    <script src="{{ asset('user/assets/js/jquery.clearsearch.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/parallax.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/jquery.clearsearch.js') }}"></script>
 
-    <script src="{{ asset('user/assets/js/jquery.hideseek.min.js') }}"></script>
-    <!-- <script src="{{ asset('user/assets/js/popover.js') }}"></script> -->
-    <script src="{{ asset('user/assets/js/popper.js') }}"></script>
-    <!-- <script src="{{ asset('user/assets/js/tooltip.js') }}"></script> -->
-    <!-- <script src="{{ asset('user/assets/js/util.js') }}"></script> -->
-    <script src="{{ asset('user/assets/js/bootstrap.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/jquery.hideseek.min.js') }}"></script>
+    <!-- <script src="{{ url('assets/user/assets/js/popover.js') }}"></script> -->
+    <script src="{{ url('assets/user/assets/js/popper.js') }}"></script>
+    <!-- <script src="{{ url('assets/user/assets/js/tooltip.js') }}"></script> -->
+    <!-- <script src="{{ url('assets/user/assets/js/util.js') }}"></script> -->
+    <script src="{{ url('assets/user/assets/js/bootstrap.js') }}"></script>
 
-    <script src="{{ asset('user/assets/js/classie.js') }}"></script>
-    <script src="{{ asset('user/assets/js/modernizr.custom.js') }}"></script>
-    <script src="{{ asset('user/assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/classie.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/modernizr.custom.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/jquery.waypoints.min.js') }}"></script>
 
-    <script src="{{ asset('user/assets/js/jquery.easing.min.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/jquery.easing.min.js') }}"></script>
 
-    <script src="{{ asset('user/assets/js/swiper.js') }}"></script>
-    <script src="{{ asset('user/assets/js/headroom.js') }}"></script>
-    <script src="{{ asset('user/assets/js/odometer.js') }}"></script>
-    <script src="{{ asset('user/assets/js/textroller.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/swiper.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/headroom.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/odometer.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/textroller.js') }}"></script>
 
-    <script src="{{ asset('user/assets/js/chart.js') }}"></script>
-    <script src="{{ asset('user/assets/js/jquery.paroller.js') }}"></script>
-    <script src="{{ asset('user/assets/js/uisearch.js') }}"></script>
-    <script src="{{ asset('user/assets/js/anime.js') }}"></script>
-    <script src="{{ asset('user/assets/js/DAFT-AND-DAPPER.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/chart.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/jquery.paroller.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/uisearch.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/anime.js') }}"></script>
+    <script src="{{ url('assets/user/assets/js/DAFT-AND-DAPPER.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
     <script type="text/javascript">

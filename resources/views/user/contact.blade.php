@@ -9,12 +9,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide height-half"
-                    style="background-image: url({{ asset('user/uploads/contact-splash.jpg') }}); ">
+                    style="background-image: url({{ url('assets/user/uploads/contact-splash.jpg') }}); ">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-                                        src=" {{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+                                        src=" {{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
                             </ul>
                         </div>
                         <div class="featured-content-paragraph">
@@ -109,7 +109,7 @@
                     <figure class="m-0 mh-322-px">
                         <figcaption class="contact-details p-4">
                             <div class="contact-title text-white mb-0 px-3 py-4">
-                                <img class="img-fluid" src="{{ asset('user/uploads/kantor_pusat.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/kantor_pusat.svg') }}" />
                                 <h4 class="akzidenz-condensed-bold mt-1" style="letter-spacing: .1rem;">
                                     &nbsp;&nbsp;KANTOR PUSAT</h4>
                             </div>
@@ -127,7 +127,7 @@
                     <figure class="m-0 mh-322-px">
                         <figcaption class="contact-details p-4">
                             <div class="contact-title text-white mb-0 px-3 py-4">
-                                <img class="img-fluid" src=" {{ asset('user/uploads/jam_operasional.svg') }}" />
+                                <img class="img-fluid" src=" {{ url('assets/user/uploads/jam_operasional.svg') }}" />
                                 <h4 class="akzidenz-condensed-bold mt-1" style="letter-spacing: .1rem;">
                                     &nbsp;&nbsp;JAM OPERASIONAL</h4>
                             </div>
@@ -145,7 +145,7 @@
                     <figure class="m-0 mh-322-px">
                         <figcaption class="contact-details p-4">
                             <div class="contact-title text-white mb-0 px-3 py-4">
-                                <img class="img-fluid" src="{{ asset('user/uploads/hubungi_kami.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/hubungi_kami.svg') }}" />
                                 <h4 class="akzidenz-condensed-bold mt-1" style="letter-spacing: .1rem;">
                                     &nbsp;&nbsp;HUBUNGI KAMI</h4>
                             </div>

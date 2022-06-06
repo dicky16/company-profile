@@ -9,7 +9,7 @@ class soalController extends Controller
 {
     public function index()
     {
-        if(session('nik')) {
+        if (session('nik')) {
             return view('user.soal.soal');
         } else {
             return redirect('career');
@@ -25,23 +25,23 @@ class soalController extends Controller
             try {
                 $dataSoal = DB::table('soal')->where('id_lowongan_kerja', $id)->get();
                 $soal = [];
-                for ($i=0; $i < count($dataSoal); $i++) {
+                for ($i = 0; $i < count($dataSoal); $i++) {
                     $jawaban = DB::table('jawaban')->where('id_soal', $dataSoal[$i]->id)->get();
                     $jawabanPelamar = DB::table('jawaban_pelamar')
-                    ->where('id_soal', $dataSoal[$i]->id)
-                    ->where('id_pelamar', session('nik'))
-                    ->get();
+                        ->where('id_soal', $dataSoal[$i]->id)
+                        ->where('id_pelamar', session('nik'))
+                        ->get();
                     $stateJawaban = 0;
                     if (count($jawabanPelamar) > 0) {
                         $stateJawaban = $jawabanPelamar[0]->id_jawaban;
                     }
                     $soal[$i] = [
-                    'soal' => $dataSoal[$i]->pertanyaan,
-                    'id_soal' => $dataSoal[$i]->id,
-                    'jawaban' => $jawaban,
-                    'id_pelamar' => session('nik'),
-                    'id_jawaban' => $stateJawaban
-                ];
+                        'soal' => $dataSoal[$i]->pertanyaan,
+                        'id_soal' => $dataSoal[$i]->id,
+                        'jawaban' => $jawaban,
+                        'id_pelamar' => session('nik'),
+                        'id_jawaban' => $stateJawaban
+                    ];
                 }
                 return response()->json([
                     'status' => true,
@@ -67,11 +67,11 @@ class soalController extends Controller
         $score = 0;
         $idPelamar = DB::table('pelamar')->where('nik', $nik)->value('nik');
         $jawaban = DB::table('jawaban_pelamar')
-        ->select('jawaban_pelamar.*', 'jawaban.score')
-        ->join('jawaban', 'jawaban_pelamar.id_jawaban', '=', 'jawaban.id')
-        ->where('id_pelamar', $idPelamar)->get();
+            ->select('jawaban_pelamar.*', 'jawaban.score')
+            ->join('jawaban', 'jawaban_pelamar.id_jawaban', '=', 'jawaban.id')
+            ->where('id_pelamar', $idPelamar)->get();
         // dd($jawaban);
-        for ($i=0; $i < count($jawaban); $i++) { 
+        for ($i = 0; $i < count($jawaban); $i++) {
             $score += $jawaban[$i]->score;
         }
         try {
@@ -95,15 +95,15 @@ class soalController extends Controller
         $idJawaban = $request->id_jawaban;
         $idPelamar = $request->id_pelamar;
         $checkJawaban = DB::table('jawaban_pelamar')
-        ->where('id_pelamar', $idPelamar)
-        ->where('id_soal', $idSoal)
-        ->get();
+            ->where('id_pelamar', $idPelamar)
+            ->where('id_soal', $idSoal)
+            ->get();
         if (count($checkJawaban) > 0) {
             try {
                 DB::table('jawaban_pelamar')
-                ->where('id_pelamar', $idPelamar)
-                ->where('id_soal', $idSoal)
-                ->update(['id_jawaban' => $idJawaban]);
+                    ->where('id_pelamar', $idPelamar)
+                    ->where('id_soal', $idSoal)
+                    ->update(['id_jawaban' => $idJawaban]);
                 return response()->json([
                     'status' => true
                 ]);

@@ -10,19 +10,19 @@ class CareerController extends Controller
     public function index(Request $request)
     {
         $query = $request->get('query');
-        if($query) {
+        if ($query) {
             $lowonganKerjas = DB::table('lowongan_kerja')
-            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-            ->where('lowongan_kerja.name', 'like', '%'.$query.'%')
-            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-            ->paginate(8);
+                ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+                ->where('lowongan_kerja.name', 'like', '%' . $query . '%')
+                ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+                ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+                ->paginate(8);
         } else {
             $lowonganKerjas = DB::table('lowongan_kerja')
-            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-            ->paginate(8);
+                ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+                ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+                ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+                ->paginate(8);
         }
         $department = DB::table('department')->get();
         return view('user.career.index', ['lowonganKerjas' => $lowonganKerjas, 'department' => $department]);
@@ -31,39 +31,59 @@ class CareerController extends Controller
     public function show($id)
     {
         $lowonganKerjas = DB::table('lowongan_kerja')
-        ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-        ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-        ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-        ->paginate(8);
+            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+            ->paginate(8);
 
         $lowonganKerja = DB::table('lowongan_kerja')
-        ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-        ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-        ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-        ->where('lowongan_kerja.id', $id)
-        ->get();
+            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+            ->where('lowongan_kerja.id', $id)
+            ->get();
         // dd($lowonganKerjas);
         //update visitor
         $visitor = $lowonganKerja[0]->visitor;
-        DB::table('lowongan_kerja')->where('id', $id)->update(['visitor' => $visitor+1]);
+        DB::table('lowongan_kerja')->where('id', $id)->update(['visitor' => $visitor + 1]);
         return view('user.career.show', ['lowonganKerja' => $lowonganKerja[0], 'lowongans' => $lowonganKerjas]);
     }
 
     public function form($id)
-    {   
+    {
         // $skills = DB::table('skill')->where('id_lowongan_kerja', $id)->get();
         $lowonganKerja = DB::table('lowongan_kerja')->where('id', $id)->get();
-        $skills = explode(', ', $lowonganKerja[0]->skill);
+        // dd($lowonganKerja);
+        if ($lowonganKerja) {
+            $skills = explode(', ', $lowonganKerja[0]->skill);
+        } else {
+            $skills = '';
+        }
         // dd($skills);
         return view('user.career.form', ['skills' => $skills, 'lowonganKerja' => $lowonganKerja[0]]);
     }
 
     public function store(Request $request, $id)
     {
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'nik' => 'required|size:16',
+            'tanggal_lahir' => 'required|date',
+            'umur' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_tlp' => 'required',
+            'email' => 'required|email',
+            'link_sosmed' => 'required',
+            'sudah_bekerja' => 'required',
+            'cv' => 'required|file',
+            'foto' => 'required|image',
+            'nilai_soal' => 'required',
+        ]);
+
         $nik = $request->nik;
         $email = $request->email;
         $checkNIK = DB::table('pelamar')->where('nik', $nik)->orWhere('email', $email)->get();
-        if(count($checkNIK) > 0) {
+        if (count($checkNIK) > 0) {
             $request->session()->put('nik', $nik);
             // return redirect("soal/".$checkNIK[0]->id_lowongan_kerja);
             return redirect('career')->with('error', 'Email dan NIK sudah terdaftar!');
@@ -90,30 +110,30 @@ class CareerController extends Controller
         $foto = $request->file('foto');
         $cv = $request->file('cv');
 
-        $namaFoto = 'foto-'.time().'.'.$foto->extension();
-        
-        $namaCv = 'cv-'.time().'.'.$cv->extension();
+        $namaFoto = 'foto-' . time() . '.' . $foto->extension();
+
+        $namaCv = 'cv-' . time() . '.' . $cv->extension();
 
         $lokasiFoto = 'assets/pelamar/foto';
         $lokasiCV = 'assets/pelamar/cv';
 
         try {
-          
+
             // dd($skill);
             $foto->move($lokasiFoto, $namaFoto);
-           
+
             $cv->move($lokasiCV, $namaCv);
             DB::table('pelamar')->insert(
                 array_merge($data, [
-                    'foto' => $lokasiFoto.'/'.$namaFoto,
-                   
-                    'cv' => $lokasiCV.'/'.$namaCv,
-                   
+                    'foto' => $lokasiFoto . '/' . $namaFoto,
+
+                    'cv' => $lokasiCV . '/' . $namaCv,
+
                     'id_lowongan_kerja' => $id
-                    ])
+                ])
             );
             // $request->session()->put('nik', $data['nik']);
-            return redirect('soal/'.$id);
+            return redirect('soal/' . $id);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
@@ -122,11 +142,11 @@ class CareerController extends Controller
     public function indexByDepartemen($id)
     {
         $lowonganKerjas = DB::table('lowongan_kerja')
-        ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-        ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-        ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-        ->where('lowongan_kerja.id_department', $id)
-        ->paginate(8);
+            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+            ->where('lowongan_kerja.id_department', $id)
+            ->paginate(8);
         $department = DB::table('department')->get();
         return view('user.career.index', ['lowonganKerjas' => $lowonganKerjas, 'department' => $department]);
     }
@@ -136,11 +156,11 @@ class CareerController extends Controller
         $query = $request->get('query');
         try {
             $lowonganKerjas = DB::table('lowongan_kerja')
-            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-            ->where('lowongan_kerja.name', 'like', '%'.$query.'%')
-            ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-            ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-            ->paginate(8);
+                ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+                ->where('lowongan_kerja.name', 'like', '%' . $query . '%')
+                ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
+                ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+                ->paginate(8);
             // $lowonganKerjas = DB::table('lowongan_kerja')
             // ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
             // ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
@@ -158,6 +178,5 @@ class CareerController extends Controller
             //     'error' => $th->getMessage()
             // ]);
         }
-        
     }
 }

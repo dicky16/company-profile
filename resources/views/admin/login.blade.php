@@ -10,11 +10,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/admin/dist/css/adminlte.min.css') }}">
 </head>
 
 <body class="hold-transition login-page">
@@ -22,7 +22,7 @@
         <div class="card card-outline card-primary">
             <div class="d-flex justify-content-center">
             <br>
-                <img src="{{asset('images/armas_globe.svg')}}" class="" width="100" height="100">
+                <img src="{{url('assets/images/armas_globe.svg')}}" class="" width="100" height="100">
             </div>
             <div class="card-header text-center">
                 <h1><b>PT ARMAS</b></h1>
@@ -59,11 +59,11 @@
     </div>
 
     <!-- jQuery -->
-    <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+    <script src="{{ url('assets/admin/dist/js/adminlte.min.js') }}"></script>
     <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @if(session('error'))
     <script>

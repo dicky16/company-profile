@@ -1,9 +1,9 @@
 @extends('user.master')
 @push('css')
-<link href="{{ asset('user/style.css') }}" rel="stylesheet">
-<link href="{{ asset('user/css/responsive.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('user/css/bootstrap.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('user/css/font-icons.css') }}" />
+<link href="{{ url('assets/user/style.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/responsive.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ url('assets/user/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ url('assets/user/css/font-icons.css') }}" />
 <style>
     .img-coba{
             width:800px !important;
@@ -22,12 +22,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide height-half"
-                    style="background-image: url({{ asset('user/uploads/contact-splash.jpg') }});">
+                    style="background-image: url({{ url('assets/user/uploads/contact-splash.jpg') }});">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-                                        src="{{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+                                        src="{{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
                             </ul>
                         </div>
                         <div class="featured-content-paragraph">

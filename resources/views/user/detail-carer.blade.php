@@ -9,12 +9,12 @@
 			<div class="swiper-wrapper">
 
 				<div class="swiper-slide height-half"
-					style="background-image: url({{ asset('user/uploads/contact-splash.jpg') }}); ">
+					style="background-image: url({{ url('assets/user/uploads/contact-splash.jpg') }}); ">
 					<div class="overlayed text-white" style="width: 100%;">
 						<div class="featured-content-meta">
 							<ul class='post-meta'>
 								<li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-										src=" {{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+										src=" {{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
 							</ul>
 						</div>
 						<div class="featured-content-paragraph">
@@ -44,7 +44,7 @@
 				<div class="post-block single-post wow fadeInUp" data-wow-delay="0.4s">
 					<div class="post-holder">
 						<div class="img-holder">
-							<img src="{{ asset('user/assets/images/it.jpg') }}" alt="image description">
+							<img src="{{ url('assets/user/assets/images/it.jpg') }}" alt="image description">
 						</div>
 						<time datetime="2011-01-12">Pendaftaran awal 12/03/2021
 							akhir

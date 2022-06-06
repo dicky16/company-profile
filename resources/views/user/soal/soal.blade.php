@@ -14,23 +14,26 @@
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- daft (bootstrap) core CSS -->
-    <link href="{{ asset('user/soal/assets/css/daft.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/daft.css') }}" rel="stylesheet">
     <!-- ampersand (font) core CSS -->
-    <link href="{{ asset('user/soal/assets/css/ampersand.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/ampersand.css') }}" rel="stylesheet">
     <!-- dapper (custom) core CSS -->
-    <link href="{{ asset('user/soal/assets/css/dapper.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/dapper.css') }}" rel="stylesheet">
     <!-- swiper -->
-    <link href="{{ asset('user/soal/assets/css/swiper.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/swiper.css') }}" rel="stylesheet">
     <!-- vivus -->
-    <link href="{{ asset('user/soal/assets/css/vivus.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/vivus.css') }}" rel="stylesheet">
     <!-- odometer -->
-    <link href="{{ asset('user/soal/assets/css/odometer-textroller.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/css/odometer-textroller.css') }}" rel="stylesheet">
     <!-- fontawesome pro 5.0.9 -->
-    <link href="{{ asset('user/soal/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
     <link rel='dns-prefetch' href='../../s.w.org/index.html' />
     <link rel="alternate" type="application/rss+xml" title="PT. Armas Logistic Sevice &raquo; Home Comments Feed" />
     <script type="text/javascript">
-        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10" } };
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/", "svgExt": ".svg", "source": {
+             "concatemoji": "{{ url('assets/user/assets/js/wp-emoji-release.min.js?ver=4.9.10') }}" 
+            //  "concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10" 
+            } };
         !function (a, b, c) { function d(a, b) { var c = String.fromCharCode; l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, a), 0, 0); var d = k.toDataURL(); l.clearRect(0, 0, k.width, k.height), l.fillText(c.apply(this, b), 0, 0); var e = k.toDataURL(); return d === e } function e(a) { var b; if (!l || !l.fillText) return !1; switch (l.textBaseline = "top", l.font = "600 32px Arial", a) { case "flag": return !(b = d([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819])) && (b = d([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]), !b); case "emoji": return b = d([55358, 56760, 9792, 65039], [55358, 56760, 8203, 9792, 65039]), !b }return !1 } function f(a) { var c = b.createElement("script"); c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var g, h, i, j, k = b.createElement("canvas"), l = k.getContext && k.getContext("2d"); for (j = Array("flag", "emoji"), c.supports = { everything: !0, everythingExceptFlag: !0 }, i = 0; i < j.length; i++)c.supports[j[i]] = e(j[i]), c.supports.everything = c.supports.everything && c.supports[j[i]], "flag" !== j[i] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[j[i]]); c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.everything || (h = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", h, !1), a.addEventListener("load", h, !1)) : (a.attachEvent("onload", h), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), g = c.source || {}, g.concatemoji ? f(g.concatemoji) : g.wpemoji && g.twemoji && (f(g.twemoji), f(g.wpemoji))) }(window, document, window._wpemojiSettings);
     </script>
     <style type="text/css">
@@ -111,10 +114,10 @@
     <link rel="icon" href="img/armas_globe.png">
 
     <!-- Core Stylesheet -->
-    <link href="{{ asset('user/soal/style.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/style.css') }}" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link href="{{ asset('user/soal/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/user/soal/css/responsive.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -159,12 +162,12 @@
     </div>
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('user/soal/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('user/soal/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('user/soal/css/jquery-ui.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('user/soal/css/jquery.tagsinput.css') }}" />
-    <link rel="stylesheet" href="{{ asset('user/soal/css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('user/soal/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/user/soal/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/user/soal/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/user/soal/css/jquery-ui.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('assets/user/soal/css/jquery.tagsinput.css') }}" />
+    <link rel="stylesheet" href="{{ url('assets/user/soal/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/user/soal/css/responsive.css') }}">
     </head>
 
     <body>
@@ -183,17 +186,18 @@
     </footer> <!-- end #footer -->
     </div> <!-- end #main-wrapper -->
     <!-- Scripts -->
-    <script src="{{ asset('user/soal/js/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('user/soal/js/jquery.ba-outside-events.min.js') }}"></script>
-    <script src="{{ asset('user/soal/js/jquery.inview.min.js') }}"></script>
-    <script src="{{ asset('user/soal/js/jquery.responsive-tabs.js') }}"></script>
-    <script src="{{ asset('user/soal/js/jquery.tagsinput.min.js') }}"></script>
-    <script src="{{ asset('user/soal/js/owl.carousel.js') }}"></script>
-    <script src="{{ asset('user/soal/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('user/soal/js/jquery-ui.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery-3.1.1.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery.ba-outside-events.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery.inview.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery.responsive-tabs.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery.tagsinput.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/owl.carousel.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/bootstrap.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery-ui.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/js/plugins/sweetalert2.js') }}"></script>
 
     <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
-    <script src="{{ asset('user/soal/js/scripts.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/scripts.js') }}"></script>
     <script type="text/javascript">
         $('#tags').tagsInput();
 
@@ -217,102 +221,106 @@
         $url.= $_SERVER['REQUEST_URI'];?>
         function loadSoal() {
             $.get("{{ url('data-soal') }}/<?= basename($url) ?>", function (data) {
-            // console.log(data);
+                // console.log(data);
                 if(data.status == true) {
-                var soal = data.data;
-                var posisi = 0;
-                var jawabanHtml = "";
-                var pilihan = "";
-                var posisiPertanyaan = 1;
-                var stateJawaban = '';
-                // console.log(soal);
-                var pertanyaan = soal[0].soal;
-                for (let index = 0; index < soal[0].jawaban.length; index++) {
-                    stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
-                    jawabanHtml += '<h3 style="color: #fff;">'+soal[0].jawaban[index].pilihan+'. '+soal[0].jawaban[index].jawaban+'</h3>';
-                    pilihan += '<button class="button btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
-                }
-                var soalHtml = '<center>'+
-                '<h1 style="color:#fff">Pertanyaan 1</h1>'+
-                '<h3 style="color: #fff;">'+pertanyaan+'</h3>'+
-                '</center>'+
-                '<div class="container">'+
-                jawabanHtml+
-                '</div>'+
-                '<center>'+
-                '<h5 style="color: #fff;">Pilihlah jawaban dibawah ini!!!</h2>'+
-                '</center>'+
-                '<center>'+pilihan+
-                '</center><br>';
-                var pertanyaanHtml = "";
-                $("#next").click(function() {
-                    let finish = posisi + 2;
-                    // console.log(finish + ' ' +soal.length);
-                    if(finish == soal.length) {
-                        $("#finish").html('<a href="#" onclick="simpanJawaban();" id="btnFinish" class="btn btn-default">Finish</a>');
+                    var soal = data.data;
+                    // console.log(soal);
+                    var posisi = 0;
+                    var jawabanHtml = "";
+                    var pilihan = "";
+                    var posisiPertanyaan = 1;
+                    var stateJawaban = '';
+                    var pertanyaan = soal[0].soal;
+                    for (let index = 0; index < soal[0].jawaban.length; index++) {
+                        stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
+                        jawabanHtml += '<h3 style="color: #fff;">'+soal[0].jawaban[index].pilihan+'. '+soal[0].jawaban[index].jawaban+'</h3>';
+                        pilihan += '<button class="button mx-1 btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
                     }
-                    $.get("{{ url('data-soal') }}/<?= basename($url) ?>", function (data) {
-                        soal = data.data
-                    });
-                        posisi++;
-                        posisiPertanyaan++;
-                        // console.log(soal[posisi].jawaban.length);
-                        pertannyaanHtml = soal[posisi].soal;
-                        jawabanHtml = "";
-                        pilihan = "";
-                        for (let index = 0; index < soal[posisi].jawaban.length; index++) {
-                            stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
-                            jawabanHtml += '<h3 style="color: #fff;">'+soal[posisi].jawaban[index].pilihan+'. '+soal[posisi].jawaban[index].jawaban+'</h3>';
-                            pilihan += '<button class="button btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
-                        }
-                    soalHtml = '<center>'+
-                    '<h1 style="color:#fff">Pertanyaan '+posisiPertanyaan +'</h1>'+
-                    '<h3 style="color: #fff;">'+pertannyaanHtml+'</h3>'+
+                    var soalHtml = '<center>'+
+                    '<h1 style="color:#fff">Pertanyaan 1</h1>'+
+                    '<h3 style="color: #fff;">'+pertanyaan+'</h3>'+
                     '</center>'+
                     '<div class="container">'+
                     jawabanHtml+
                     '</div>'+
                     '<center>'+
-                    '<h5 style="color: #fff;">Pililah jawaban dibawah ini!!!</h2>'+
+                    '<h5 style="color: #fff;">Pilihlah jawaban dibawah ini!!!</h2>'+
                     '</center>'+
                     '<center>'+pilihan+
                     '</center><br>';
-                    $("#soal").html("");
-                    $("#soal").html(soalHtml);
+                    var pertanyaanHtml = "";
+
+                    $("#next").click(function() {
+                        $("#pref").removeClass("d-none");
+                        if(posisiPertanyaan === soal.length) {
+                            $("#finish").html('<a href="#" onclick="simpanJawaban();" id="btnFinish" class="btn btn-default">Finish</a>');
+                            $("#next").addClass("d-none");
+                        }else{
+                            posisi++;
+                            posisiPertanyaan++;
+                            $.get("{{ url('data-soal') }}/<?= basename($url) ?>", function (data) {
+                                soal = data.data
+                            });
+                            console.log(posisi);
+                            pertannyaanHtml = soal[posisi].soal;
+                            jawabanHtml = "";
+                            pilihan = "";
+                            for (let index = 0; index < soal[posisi].jawaban.length; index++) {
+                                stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
+                                jawabanHtml += '<h3 style="color: #fff;">'+soal[posisi].jawaban[index].pilihan+'. '+soal[posisi].jawaban[index].jawaban+'</h3>';
+                                pilihan += '<button class="button mx-1 btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
+                            }
+                            soalHtml = '<center>'+
+                            '<h1 style="color:#fff">Pertanyaan '+posisiPertanyaan +'</h1>'+
+                            '<h3 style="color: #fff;">'+pertannyaanHtml+'</h3>'+
+                            '</center>'+
+                            '<div class="container">'+
+                            jawabanHtml+
+                            '</div>'+
+                            '<center>'+
+                            '<h5 style="color: #fff;">Pililah jawaban dibawah ini!!!</h2>'+
+                            '</center>'+
+                            '<center>'+pilihan+
+                            '</center><br>';
+                            $("#soal").html("");
+                            $("#soal").html(soalHtml);
+                        }
                     });
+
                     $("#pref").click(function() {
                         $("#finish").html('');
+                        $("#next").removeClass("d-none");
                         if(posisi == 0) {
-                            $("#pref").addClass("none");
+                            $("#pref").addClass("d-none");
                         } else {
-                        $.get("{{ url('data-soal') }}/<?= basename($url) ?>", function (data) {
-                            soal = data.data
-                        });
-                        posisi--;
-                        posisiPertanyaan--;
-                        // console.log(soal[posisi].jawaban.length);
-                        pertannyaanHtml = soal[posisi].soal;
-                        jawabanHtml = "";
-                        pilihan = "";
-                        for (let index = 0; index < soal[posisi].jawaban.length; index++) {
-                            stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
-                            jawabanHtml += '<h3 style="color: #fff;">'+soal[posisi].jawaban[index].pilihan+'. '+soal[posisi].jawaban[index].jawaban+'</h3>';
-                            pilihan += '<button class="button btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
-                        }
-                    soalHtml = '<center>'+
-                    '<h1 style="color:#fff">Pertanyaan '+ posisiPertanyaan +'</h1>'+
-                    '<h3 style="color: #fff;">'+pertannyaanHtml+'</h3>'+
-                    '</center>'+
-                    '<div class="container">'+
-                    jawabanHtml+
-                    '</div>'+
-                    '<center>'+
-                    '<h5 style="color: #fff;">Pililah jawaban dibawah ini!!!</h2>'+
-                    '</center>'+
-                    '<center>'+pilihan+
-                    '</center><br>';
-                    $("#soal").html("");
-                    $("#soal").html(soalHtml);
+                            posisi--;
+                            posisiPertanyaan--;
+                            $.get("{{ url('data-soal') }}/<?= basename($url) ?>", function (data) {
+                                soal = data.data
+                            });
+                            // console.log(soal[posisi].jawaban.length);
+                            pertannyaanHtml = soal[posisi].soal;
+                            jawabanHtml = "";
+                            pilihan = "";
+                            for (let index = 0; index < soal[posisi].jawaban.length; index++) {
+                                stateJawaban = (soal[posisi].id_jawaban==soal[posisi].jawaban[index].id) ? 'button-clicked' : '';
+                                jawabanHtml += '<h3 style="color: #fff;">'+soal[posisi].jawaban[index].pilihan+'. '+soal[posisi].jawaban[index].jawaban+'</h3>';
+                                pilihan += '<button class="button mx-1 btn-jawaban btn'+soal[posisi].jawaban[index].id+' '+stateJawaban+'" onclick="jawab('+soal[posisi].jawaban[index].id+');" data-id="'+soal[posisi].id_soal+'-'+soal[posisi].id_pelamar+'">'+soal[posisi].jawaban[index].pilihan+'</button>';
+                            }
+                            soalHtml = '<center>'+
+                            '<h1 style="color:#fff">Pertanyaan '+ posisiPertanyaan +'</h1>'+
+                            '<h3 style="color: #fff;">'+pertannyaanHtml+'</h3>'+
+                            '</center>'+
+                            '<div class="container">'+
+                            jawabanHtml+
+                            '</div>'+
+                            '<center>'+
+                            '<h5 style="color: #fff;">Pililah jawaban dibawah ini!!!</h2>'+
+                            '</center>'+
+                            '<center>'+pilihan+
+                            '</center><br>';
+                            $("#soal").html("");
+                            $("#soal").html(soalHtml);
                         }
                     });
 
@@ -325,9 +333,8 @@
                     //     });
                     // });
 
-                $("#soal").html(soalHtml);
-                } 
-                else {
+                    $("#soal").html(soalHtml);
+                } else {
                     window.location.replace("{{url('career/form')}}/"+data.id_lowongan);
                 }
             });
@@ -365,8 +372,16 @@
             // console.log('finish');
                         $.get("{{url('simpan-jawaban')}}", function (data) {
                             if(data.status == true) {
-                                alert('terimakasih');
-                                window.location.replace("{{url('career')}}");
+                                Swal.fire({
+                                    type: 'success',
+                                    title: 'Selesai',
+                                    text: 'Terima kasih telah mendaftar, pengumuman lolos selanjutnya akan diumumkan H+2 setelah penutupan pendaftaran (pengumuman via email, jika tidak menerima email maka tidak lolos)',
+                                    allowEscapeKey: false,
+                                    allowOutsideClick: false,
+                                    width: '50%'
+                                }).then(function(e){
+                                    window.location.replace("{{url('career')}}");
+                                });
                             }
                         });
         }
@@ -377,15 +392,15 @@
     <!--Footer-->
     
     <!-- jQuery-2.2.4 js -->
-    <script src="{{ asset('user/soal/js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/jquery-2.2.4.min.js') }}"></script>
     <!-- Popper js -->
-    <script src="{{ asset('user/soal/js/popper.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/popper.min.js') }}"></script>
     <!-- Bootstrap js -->
-    <script src="{{ asset('user/soal/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/bootstrap.min.js') }}"></script>
     <!-- All Plugins js -->
-    <script src="{{ asset('user/soal/js/plugins.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/plugins.js') }}"></script>
     <!-- Active js -->
-    <script src="{{ asset('user/soal/js/active.js') }}"></script>
+    <script src="{{ url('assets/user/soal/js/active.js') }}"></script>
 </body>
 
 </html>

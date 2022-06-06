@@ -1,8 +1,8 @@
 @extends('user.master')
 @push('css')
-<link href="{{ asset('user/css/styles.css') }}" rel="stylesheet">
-<link href="{{ asset('user/css/responsive.css') }}" rel="stylesheet">
-<link href="{{ asset('user/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/styles.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/responsive.css') }}" rel="stylesheet">
+<link href="{{ url('assets/user/css/font-awesome.min.css') }}" rel="stylesheet">
 @endpush
 @section('content')
 <div class="page">
@@ -14,12 +14,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide height-half"
-                    style="background-image: url({{ asset('user/uploads/contact-splash.jpg') }});">
+                    style="background-image: url({{ url('assets/user/uploads/contact-splash.jpg') }});">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-                                        src="{{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+                                        src="{{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
                             </ul>
                         </div>
                         <div class="featured-content-paragraph">
@@ -140,7 +140,7 @@
                     <div class="motijob-sidebar"><br><br>
                         <div class="candidate-profile-picture">
                             <div class="upload-img-field">
-                                <img class="img-fluid img-56-vw" src="{{ asset('user/uploads/fotoformal.png') }}">
+                                <img class="img-fluid img-56-vw" src="{{ url('assets/user/uploads/fotoformal.png') }}">
                                 <a class="btn btn-primary" href="#">Upload Foto anda</a>
                             </div>
                         </div> <!-- end .agent-profile-picture -->

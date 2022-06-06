@@ -13,7 +13,7 @@
                         <!-- <div class="featured-content-meta revealOnScroll slow" data-animation="fadeInRight">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Truck:</span> <img class="img-fluid img-56-vw"
-                                        src="{{ asset('user/uploads/armas-truck-splash.svg') }}" /></li>
+                                        src="{{ url('assets/user/uploads/armas-truck-splash.svg') }}" /></li>
                             </ul>
                         </div> -->
                         <div class="featured-content-paragraph revealOnScroll slow" data-animation="fadeInUp">
@@ -27,7 +27,7 @@
                 </div>
                 @endforeach
                 <!-- <div class="swiper-slide full" data-swiper-autoplay="8000"
-                    style="background-image: url({{ asset('user/uploads/armas_splash_2.png') }});">
+                    style="background-image: url({{ url('assets/user/uploads/armas_splash_2.png') }});">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta revealOnScroll slow" data-animation="fadeInRight">
                             <ul class='post-meta'>
@@ -123,7 +123,7 @@
     </style>
     <section id="tentang-kami">
         <div class="container-fluid section-content background-fixed-parallax"
-            style="background-image: url({{ asset('user/assets/images/bg_home_1.jpg') }});">
+            style="background-image: url({{ url('assets/user/assets/images/bg_home_1.jpg') }});">
             <div class="inner-padding">
                 <div class="row">
 
@@ -135,7 +135,7 @@
                                     class="text-left text-white tentang-kami-armas-red-gradient-title akzidenz-condensed-bold pt-3 mt-3 pb-0 mb-0">
                                     TENTANG KAMI</h3>
                             </div>
-                            <div class="col-12 px-4 tentang-kami-content text-white">
+                            <div class="col-12 px-4 tentang-kami-content">
                                 <p>Terbentuk pada tahun 2004, Armas bergerak dalam jasa kurir dan pengiriman dari
                                     pabrik perusahaan kepada para dealer tertentu, dan telah menjadi pilihan yang
                                     tepat dan terpercaya bagi perusahaan otomotif seluruh Indonesia. Armas merupakan
@@ -168,9 +168,9 @@
 
                     <div class="col-md-4 p-0">
                         <figure class="zoom-effect-lighten">
-                            <img width="1200" height="833" src="{{ asset('user/uploads/jenis-sistem-pengiriman.png') }}"
+                            <img width="1200" height="833" src="{{ url('assets/user/uploads/jenis-sistem-pengiriman.png') }}"
                                 class="img-fluid wp-post-image" alt=""
-                                srcset="{{ asset('user/uploads/jenis-sistem-pengiriman.png 1200w') }}, {{ asset('user/uploads/jenis-sistem-pengiriman-300x208.png 300w') }}, {{ asset('user/uploads/jenis-sistem-pengiriman-768x533.png 768') }}w, {{ asset('user/uploads/jenis-sistem-pengiriman-1024x711.png 1024w') }}"
+                                srcset="{{ url('assets/user/uploads/jenis-sistem-pengiriman.png 1200w') }}, {{ url('assets/user/uploads/jenis-sistem-pengiriman-300x208.png 300w') }}, {{ url('assets/user/uploads/jenis-sistem-pengiriman-768x533.png 768') }}w, {{ url('assets/user/uploads/jenis-sistem-pengiriman-1024x711.png 1024w') }}"
                                 sizes="(max-width: 1200px) 100vw, 1200px">
                             <figcaption class="fade-to-back">
                                 <h1 class="content-centered heading-title m-auto text-center text-white akzidenz-condensed-bold"
@@ -186,9 +186,9 @@
 
                     <div class="col-md-4 p-0">
                         <figure class="zoom-effect-lighten">
-                            <img width="1200" height="833" src="{{ asset('user/uploads/visi-misi.png') }}"
+                            <img width="1200" height="833" src="{{ url('assets/user/uploads/visi-misi.png') }}"
                                 class="img-fluid wp-post-image" alt=""
-                                srcset="{{ asset('user/uploads/visi-misi.png 1200w') }}, {{ asset('user/uploads/visi-misi-300x208.png 300w') }}, {{ asset('user/uploads/visi-misi-768x533.png 768w') }}, {{ asset('user/uploads/visi-misi-1024x711.png 1024w') }}"
+                                srcset="{{ url('assets/user/uploads/visi-misi.png 1200w') }}, {{ url('assets/user/uploads/visi-misi-300x208.png 300w') }}, {{ url('assets/user/uploads/visi-misi-768x533.png 768w') }}, {{ url('assets/user/uploads/visi-misi-1024x711.png 1024w') }}"
                                 sizes="(max-width: 1200px) 100vw, 1200px">
                             <figcaption class="fade-to-back">
                                 <h1 class="content-centered heading-title m-auto text-center text-white akzidenz-condensed-bold"
@@ -204,9 +204,9 @@
 
                     <div class="col-md-4 p-0">
                         <figure class="zoom-effect-lighten">
-                            <img width="1200" height="833" src="{{ asset('user/uploads/sumber-daya-manusia.png') }}"
+                            <img width="1200" height="833" src="{{ url('assets/user/uploads/sumber-daya-manusia.png') }}"
                                 class="img-fluid wp-post-image" alt=""
-                                srcset="{{ asset('user/uploads/sumber-daya-manusia.png 1200w') }}, {{ asset('user/uploads/sumber-daya-manusia-300x208.png 300w') }}, {{ asset('user/uploads/sumber-daya-manusia-768x533.png 768w') }}, {{ asset('user/uploads/sumber-daya-manusia-1024x711.png 1024w') }}"
+                                srcset="{{ url('assets/user/uploads/sumber-daya-manusia.png 1200w') }}, {{ url('assets/user/uploads/sumber-daya-manusia-300x208.png 300w') }}, {{ url('assets/user/uploads/sumber-daya-manusia-768x533.png 768w') }}, {{ url('assets/user/uploads/sumber-daya-manusia-1024x711.png 1024w') }}"
                                 sizes="(max-width: 1200px) 100vw, 1200px">
                             <figcaption class="fade-to-back">
                                 <h1 class="content-centered heading-title m-auto text-center text-white akzidenz-condensed-bold"
@@ -264,7 +264,7 @@
                             </p>
                         </div>
                         <div class="col-12 revealOnScroll" data-animation="fadeInUp">
-                            <img class="img-fluid img-100" src="{{ asset('user/uploads/gif2.gif') }}" />
+                            <img class="img-fluid img-100" src="{{ url('assets/user/uploads/gif2.gif') }}" />
                         </div>
                     </div>
                 </div>
@@ -285,7 +285,7 @@
                                             </h1>
                                         </div>
                                         <div class="col-2 p-0 flex-center">
-                                            <img src="{{ asset('user/uploads/1-penjadualan-pemberangkatan.svg') }}"
+                                            <img src="{{ url('assets/user/uploads/1-penjadualan-pemberangkatan.svg') }}"
                                                 class="img-fluid img-60 wp-post-image" alt=""> </div>
                                         <div class="col-8 justify-content-flex-start">
                                             <h3 class="akzidenz-condensed-regular kontrol-sistem-desc m-0">
@@ -306,7 +306,7 @@
                                             </h1>
                                         </div>
                                         <div class="col-2 p-0 flex-center">
-                                            <img src="{{ asset('user/uploads/2-pemberangkatan-pengiriman.svg') }}"
+                                            <img src="{{ url('assets/user/uploads/2-pemberangkatan-pengiriman.svg') }}"
                                                 class="img-fluid img-60 wp-post-image" alt=""> </div>
                                         <div class="col-8 justify-content-flex-start">
                                             <h3 class="akzidenz-condensed-regular kontrol-sistem-desc m-0">
@@ -327,7 +327,7 @@
                                             </h1>
                                         </div>
                                         <div class="col-2 p-0 flex-center">
-                                            <img src="{{ asset('user/uploads/3-monitoring-perjalanan-sampai-tujuan.svg') }}"
+                                            <img src="{{ url('assets/user/uploads/3-monitoring-perjalanan-sampai-tujuan.svg') }}"
                                                 class="img-fluid img-60 wp-post-image" alt=""> </div>
                                         <div class="col-8 justify-content-flex-start">
                                             <h3 class="akzidenz-condensed-regular kontrol-sistem-desc m-0">
@@ -348,7 +348,7 @@
                                             </h1>
                                         </div>
                                         <div class="col-2 p-0 flex-center">
-                                            <img src="{{ asset('user/uploads/4-penanganan-masalah.svg') }}"
+                                            <img src="{{ url('assets/user/uploads/4-penanganan-masalah.svg') }}"
                                                 class="img-fluid img-60 wp-post-image" alt=""> </div>
                                         <div class="col-8 justify-content-flex-start">
                                             <h3 class="akzidenz-condensed-regular kontrol-sistem-desc m-0">
@@ -393,13 +393,13 @@
 
 
                     <div class="col-xl-4 px-0 bg-fixed-centered"
-                        style="background-image: url({{ asset('user/uploads/armas-truck-small-bg.svg') }});">
+                        style="background-image: url({{ url('assets/user/uploads/armas-truck-small-bg.svg') }});">
                         <div class="row">
 
                             <div class="col-12 p-55 flex-center revealOnScroll" data-animation="fadeInRight">
                                 <ul class='post-meta'>
                                     <li><span class='post-meta-key'>Truck:</span> <img class="img-fluid img-100"
-                                            src="{{ asset('user/uploads/armas-truck-small.svg') }}" /></li>
+                                            src="{{ url('assets/user/uploads/armas-truck-small.svg') }}" /></li>
                                 </ul>
                             </div>
 
@@ -423,13 +423,13 @@
 
 
                     <div class="col-xl-4 px-0 bg-fixed-centered"
-                        style="background-image: url({{ asset('user/uploads/armas-truck-medium-bg.svg') }});">
+                        style="background-image: url({{ url('assets/user/uploads/armas-truck-medium-bg.svg') }});">
                         <div class="row">
 
                             <div class="col-12 p-55 flex-center revealOnScroll" data-animation="fadeInRight">
                                 <ul class='post-meta'>
                                     <li><span class='post-meta-key'>Truck:</span> <img class="img-fluid img-100"
-                                            src="{{ asset('user/uploads/armas-truck-medium.svg') }}"></li>
+                                            src="{{ url('assets/user/uploads/armas-truck-medium.svg') }}"></li>
                                 </ul>
                             </div>
 
@@ -453,13 +453,13 @@
 
 
                     <div class="col-xl-4 px-0 bg-fixed-centered"
-                        style="background-image: url({{ asset('user/uploads/armas-truck-large-bg.svg') }});">
+                        style="background-image: url({{ url('assets/user/uploads/armas-truck-large-bg.svg') }});">
                         <div class="row">
 
                             <div class="col-12 p-55 flex-center revealOnScroll" data-animation="fadeInRight">
                                 <ul class='post-meta'>
                                     <li><span class='post-meta-key'>Truck:</span> <img class="img-fluid img-100"
-                                            src="{{ asset('user/uploads/armas-truck-large.svg') }}"></li>
+                                            src="{{ url('assets/user/uploads/armas-truck-large.svg') }}"></li>
                                 </ul>
                             </div>
 
@@ -487,7 +487,7 @@
             </div> <!-- white-to-grey-bg -->
 
             <div class="revealOnScroll slower delay-05s" data-animation="fadeIn">
-                <img class="img-fluid img-100" src="{{ asset('user/uploads/trucks-splash.png') }}" />
+                <img class="img-fluid img-100" src="{{ url('assets/user/uploads/trucks-splash.png') }}" />
             </div>
 
         </div> <!-- container-fluid end -->

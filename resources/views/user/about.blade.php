@@ -9,12 +9,12 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide height-half"
-                    style="background-image: url({{ asset('user/uploads/about-featured.jpg') }});">
+                    style="background-image: url({{ url('assets/user/uploads/about-featured.jpg') }});">
                     <div class="overlayed text-white" style="width: 100%;">
                         <div class="featured-content-meta">
                             <ul class='post-meta'>
                                 <li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-                                        src="{{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+                                        src="{{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
                             </ul>
                         </div>
                         <div class="featured-content-paragraph">
@@ -224,7 +224,7 @@ Attribution required
                             </div>
                         </div>
                         <div class="col-lg-6 order-first-lg p-0">
-                            <img class="img-fluid" src="{{ asset('user/uploads/visi.jpg') }}" />
+                            <img class="img-fluid" src="{{ url('assets/user/uploads/visi.jpg') }}" />
                         </div>
                     </div>
                 </div>
@@ -249,7 +249,7 @@ Attribution required
                             </div>
                         </div>
                         <div class="col-lg-6 p-0">
-                            <img class="img-fluid" src="{{ asset('user/uploads/misi.jpg') }}" />
+                            <img class="img-fluid" src="{{ url('assets/user/uploads/misi.jpg') }}" />
                         </div>
                     </div>
                 </div>
@@ -268,32 +268,32 @@ Attribution required
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide full stats-overlay"
-                    style="background-image: url({{ asset('user/uploads/stats-bg.jpg') }}); align-items: flex-start;">
+                    style="background-image: url({{ url('assets/user/uploads/stats-bg.jpg') }}); align-items: flex-start;">
                     <div class="container section-content">
                         <div class="row">
                             <div class="col-xl-3 col-6 p-3">
-                                <img class="img-fluid" src="{{ asset('user/uploads/building-icon.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/building-icon.svg') }}" />
                                 <h5 class="akzidenz-regular text-white py-2" style="letter-spacing: .01rem;">Tahun
                                     Didirikan</h5>
                                 <span class="odometer abel-regular text-white tahun-didirikan">8888</span><span
                                     class="abel-regular text-span text-white"></span>
                             </div>
                             <div class="col-xl-3 col-6 p-3">
-                                <img class="img-fluid" src="{{ asset('user/uploads/ribbon-icon.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/ribbon-icon.svg') }}" />
                                 <h5 class="akzidenz-regular text-white py-2" style="letter-spacing: .01rem;">Status
                                     Usaha</h5>
                                 <span id="roller" class="abel-regular text-white status-usaha"></span><span
                                     class="abel-regular text-span text-white"></span>
                             </div>
                             <div class="col-xl-3 col-6 p-3">
-                                <img class="img-fluid" src="{{ asset('user/uploads/location-icon.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/location-icon.svg') }}" />
                                 <h5 class="akzidenz-regular text-white py-2" style="letter-spacing: .01rem;">Luas
                                     Area</h5>
                                 <span class="odometer abel-regular text-white luas-area">00000</span><span
                                     class="abel-regular text-span text-white"> m<sup>2</sup></span>
                             </div>
                             <div class="col-xl-3 col-6 p-3">
-                                <img class="img-fluid" src="{{ asset('user/uploads/people-icon.svg') }}" />
+                                <img class="img-fluid" src="{{ url('assets/user/uploads/people-icon.svg') }}" />
                                 <h5 class="akzidenz-regular text-white py-2" style="letter-spacing: .01rem;">Jumlah
                                     Karyawan</h5>
                                 <span class="odometer abel-regular text-white jumlah-karyawan">000</span><span
@@ -426,7 +426,7 @@ Attribution required
                         <div class="col-lg-8 flex-center order-last-lg p-5-to-p-4-to-p-3 pb-0-d bg-lightgrey">
                             <div style="width: 100%;">
                                 <div class="bg-white p-5-to-p-4-to-p-3 box-shadow bg-fixed-centered"
-                                    style="background: url({{ asset('user/uploads/truk-kami-bg.svg') }});">
+                                    style="background: url({{ url('assets/user/uploads/truk-kami-bg.svg') }});">
                                     <h3 class="text-left-to-center text-armas-red abel-regular">JENIS SPESIFIK TRUK
                                     </h3>
                                     <p class="akzidenz-regular text-grey visi-misi-content text-left-to-center">
@@ -434,21 +434,21 @@ Attribution required
                                     <div class="row">
                                         <div class="col-lg-4 p-5-to-p-4-to-p-3">
                                             <img class="img-fluid img-100"
-                                                src="{{ asset('user/uploads/truk-kami-small.svg') }}" />
+                                                src="{{ url('assets/user/uploads/truk-kami-small.svg') }}" />
                                             <br>
                                             <p class="akzidenz-regular text-center visi-misi-content m-0"><strong
                                                     class="akzidenz-bold">SMALL</strong> (4.2 X 2.3 X 2.3)</p>
                                         </div>
                                         <div class="col-lg-4 p-5-to-p-4-to-p-3">
                                             <img class="img-fluid img-100"
-                                                src="{{ asset('user/uploads/truk-kami-medium.svg') }}" />
+                                                src="{{ url('assets/user/uploads/truk-kami-medium.svg') }}" />
                                             <br>
                                             <p class="akzidenz-regular text-center visi-misi-content m-0"><strong
                                                     class="akzidenz-bold">MEDIUM</strong> (6.5 X 2.4 X 2.4)</p>
                                         </div>
                                         <div class="col-lg-4 p-5-to-p-4-to-p-3">
                                             <img class="img-fluid img-100"
-                                                src="{{ asset('user/uploads/truk-kami-long.svg') }}" />
+                                                src="{{ url('assets/user/uploads/truk-kami-long.svg') }}" />
                                             <br>
                                             <p class="akzidenz-regular text-center visi-misi-content m-0"><strong
                                                     class="akzidenz-bold">LONG</strong> (7.5 X 2.4 X 2.4)</p>
@@ -473,7 +473,7 @@ Attribution required
                         </div>
                         <div class="col-lg-6 flex-center p-5-to-p-4-to-p-3 w-100 h-100 noselect">
                             <div class="bg-fixed-centered p-5-to-p-4-to-p-3 box-shadow w-100 h-100"
-                                style="background: url({{ asset('user/uploads/truk-kami.jpg') }})"
+                                style="background: url({{ url('assets/user/uploads/truk-kami.jpg') }})"
                                 style="height: 200px;">
                                 <h3 class="text-left-to-center text-armas-red abel-regular o-0">PT. ARMAS</h3>
                                 <h6 class="text-left-to-center text-dark-grey akzidenz-regular o-0">LOGISTICS</h6>
@@ -725,7 +725,7 @@ Attribution required
 @endsection
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
-<script src="{{asset('user/apexchart/apexcharts.js')}}"></script>
+<script src="{{url('assets/user/apexchart/apexcharts.js')}}"></script>
 <script>
     $('#carouselExample').on('slide.bs.carousel', function (e) {
 
@@ -845,8 +845,8 @@ Attribution required
                 }]
             };
 
-            var chart = new ApexCharts(document.querySelector("#pelangganKami"), options);
-            chart.render();
+            // var chart = new ApexCharts(document.querySelector("#pelangganKami"), options);
+            // chart.render();
         }
     });
 </script>

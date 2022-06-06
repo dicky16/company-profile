@@ -11,19 +11,19 @@
 	<link rel="icon" href="favicon.html">
 	<title>PT. Armas Logistic Service</title>
 	<!-- daft (bootstrap) core CSS -->
-	<link href="{{asset('user/assets/css/daft.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/daft.css') }}" rel="stylesheet">
 	<!-- ampersand (font) core CSS -->
-	<link href="{{asset('user/assets/css/ampersand.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/ampersand.css') }}" rel="stylesheet">
 	<!-- dapper (custom) core CSS -->
-	<link href="{{asset('user/assets/css/dapper.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/dapper.css') }}" rel="stylesheet">
 	<!-- swiper -->
-	<link href="{{asset('user/assets/css/swiper.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/swiper.css') }}" rel="stylesheet">
 	<!-- vivus -->
-	<link href="{{asset('user/assets/css/vivus.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/vivus.css') }}" rel="stylesheet">
 	<!-- odometer -->
-	<link href="{{asset('user/assets/css/odometer-textroller.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/css/odometer-textroller.css') }}" rel="stylesheet">
 	<!-- fontawesome pro 5.0.9 -->
-	<link href="{{asset('user/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+	<link href="{{url('assets/user/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
 	<link rel='dns-prefetch' href='../../../s.w.org/index.html' />
 	<script type="text/javascript">
 		window._wpemojiSettings = {
@@ -32,7 +32,8 @@
 			"svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/",
 			"svgExt": ".svg",
 			"source": {
-				"concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10"
+				"concatemoji": "{{ url('assets/user/assets/js/wp-emoji-release.min.js?ver=4.9.10') }}"
+				// "concatemoji": "http:\/\/js\/wp-emoji-release.min.js?ver=4.9.10"
 			}
 		};
 		! function (a, b, c) {
@@ -163,7 +164,7 @@
 		id="header">
 		<a class="navbar-brand mr-auto" href="index.php">
 			<img id="main-logo" class="img-fluid ease-in-out-5 img-logo"
-				src="{{ asset('user/assets/images/svg/armas_globe.svg') }}" />
+				src="{{ url('assets/user/assets/images/svg/armas_globe.svg') }}" />
 		</a>
 		<button id="mobile-button" class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
@@ -215,12 +216,12 @@
 				<div class="swiper-wrapper">
 
 					<div class="swiper-slide height-half"
-						style="background-image: url({{ asset('user/uploads/services-featured.jpg') }});">
+						style="background-image: url({{ url('assets/user/uploads/services-featured.jpg') }});">
 						<div class="overlayed text-white" style="width: 100%;">
 							<div class="featured-content-meta">
 								<ul class='post-meta'>
 									<li><span class='post-meta-key'>Globe:</span> <img class="img-fluid img-56-vw"
-											src="{{ asset('user/uploads/armas-globe-white-big.svg') }}" /></li>
+											src="{{ url('assets/user/uploads/armas-globe-white-big.svg') }}" /></li>
 								</ul>
 							</div>
 							<div class="featured-content-paragraph">
@@ -321,7 +322,7 @@
 										<p class="akzidenz-regular-italic text-center text-grey mt-0">Interplant
 											Delivery System</p>
 										<img class="img-fluid img-w-100 p-5-to-p-4-to-p-3"
-											src="{{ asset('user/uploads/gif3.gif') }}" />
+											src="{{ url('assets/user/uploads/gif3.gif') }}" />
 									</div>
 								</div>
 								<div class="col-lg-4 d-flex p-5-to-p-4-to-p-3 pt-0 pr-0">
@@ -364,7 +365,7 @@
 										<p class="akzidenz-regular-italic text-center text-grey mt-0">Milkrun Delivery
 											System</p>
 										<img class="img-fluid img-w-100 p-5-to-p-4-to-p-3"
-											src="{{ asset('user/uploads/milkrun-delivery-system.svg') }}" />
+											src="{{ url('assets/user/uploads/milkrun-delivery-system.svg') }}" />
 									</div>
 								</div>
 							</div>
@@ -2423,7 +2424,7 @@
 							<div class="row">
 								<div class="col-lg-8 d-flex p-5-to-p-4-to-p-3 pt-0 pr-0-d">
 									<div class="w-100 p-5-to-p-4-to-p-3 bg-white box-shadow">
-										<img class="img-fluid img-100" src="{{ asset('user/uploads/gif2.gif') }}" />
+										<img class="img-fluid img-100" src="{{ url('assets/user/uploads/gif2.gif') }}" />
 									</div>
 								</div>
 								<div class="col-lg-4 d-flex p-5-to-p-4-to-p-3 pt-0 pr-0">
@@ -3119,7 +3120,7 @@
 
 		<section id="tentang-kami">
 			<div class="container-fluid background-fixed-parallax"
-				style="background-image: url({{ asset('user/uploads/sumber-daya-manusia.jpg') }});">
+				style="background-image: url({{ url('assets/user/uploads/sumber-daya-manusia.jpg') }});">
 				<div class="inner-padding">
 					<div class="row">
 
@@ -3148,7 +3149,7 @@
 					<div class="col-12 p-0 justify-content-flex-center revealOnScroll slow delay-02s"
 						data-animation="fadeIn">
 						<img class="img-fluid img-100"
-							src="{{ asset('user/uploads/alur-proses-penerimaan-pengembangan-karyawan.svg') }}" />
+							src="{{ url('assets/user/uploads/alur-proses-penerimaan-pengembangan-karyawan.svg') }}" />
 					</div> <!-- row end -->
 				</div>
 			</div> <!-- container-fluid end -->
@@ -3168,7 +3169,7 @@
 
 	<!--Footer-->
 	<footer id="footer" class="text-white bg-black"
-		style="background: url({{ asset('user/assets/images/svg/armas_footer.svg') }}); background-repeat: no-repeat; background-size: cover; background-position: center !important;">
+		style="background: url({{ url('assets/user/assets/images/svg/armas_footer.svg') }}); background-repeat: no-repeat; background-size: cover; background-position: center !important;">
 
 		<div class="container-fluid" style="border-top: 10px solid white;">
 			<div class="row">
@@ -3223,7 +3224,7 @@
 								</div>
 								<div class="col-xl-3 p-0 mb-auto text-right">
 									<div class="footer-logo text-center-mobile">
-										<img class="img-fluid" src="{{ asset('user/img/armas_globe.svg') }}" />
+										<img class="img-fluid" src="{{ url('assets/user/img/armas_globe.svg') }}" />
 									</div>
 								</div>
 							</div>
@@ -3306,34 +3307,34 @@
 
 	<!-- ================================================== -->
 
-	<script src="{{asset('user/assets/js/jquery-3.3.1.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery-3.3.1.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/parallax.js') }}"></script>
-	<script src="{{asset('user/assets/js/jquery.clearsearch.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/parallax.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery.clearsearch.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/jquery.hideseek.min.js') }}"></script>
-	<script src="{{asset('user/assets/js/popover.js') }}"></script>
-	<script src="{{asset('user/assets/js/popper.js') }}"></script>
-	<script src="{{asset('user/assets/js/tooltip.js') }}"></script>
-	<script src="{{asset('user/assets/js/util.js') }}"></script>
-	<script src="{{asset('user/assets/js/bootstrap.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery.hideseek.min.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/popover.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/popper.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/tooltip.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/util.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/bootstrap.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/classie.js') }}"></script>
-	<script src="{{asset('user/assets/js/modernizr.custom.js') }}"></script>
-	<script src="{{asset('user/assets/js/jquery.waypoints.min.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/classie.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/modernizr.custom.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery.waypoints.min.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/jquery.easing.min.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery.easing.min.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/swiper.js') }}"></script>
-	<script src="{{asset('user/assets/js/headroom.js') }}"></script>
-	<script src="{{asset('user/assets/js/odometer.js') }}"></script>
-	<script src="{{asset('user/assets/js/textroller.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/swiper.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/headroom.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/odometer.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/textroller.js') }}"></script>
 
-	<script src="{{asset('user/assets/js/chart.js') }}"></script>
-	<script src="{{asset('user/assets/js/jquery.paroller.js') }}"></script>
-	<script src="{{asset('user/assets/js/uisearch.js') }}"></script>
-	<script src="{{asset('user/assets/js/anime.js') }}"></script>
-	<script src="{{asset('user/assets/js/DAFT-AND-DAPPER.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/chart.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/jquery.paroller.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/uisearch.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/anime.js') }}"></script>
+	<script src="{{url('assets/user/assets/js/DAFT-AND-DAPPER.js') }}"></script>
 
 	<script type="text/javascript">
 		if (self == top) {
@@ -3367,7 +3368,7 @@
 
 
 </html>
-<script src="{{asset('user/apexchart/apexcharts.js')}}"></script>
+<script src="{{url('assets/user/apexchart/apexcharts.js')}}"></script>
 <script>
 	var label = null;
 	var data = null;

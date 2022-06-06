@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('css')
 <!-- summernote -->
-<link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
+<link rel="stylesheet" href="{{ url('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
 @endsection
 @section('content')
 <div class="content-wrapper">
@@ -62,9 +62,9 @@
 @endsection
 @section('js')
 <!-- Summernote -->
-<script src="{{ asset('admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ url('assets/admin/plugins/summernote/summernote-bs4.min.js') }}"></script>
   <!-- Bootstrap Switch -->
-  <script src="{{ asset('admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
+  <script src="{{ url('assets/admin/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"></script>
   <!-- Page specific script -->
   <script>
     $(function () {

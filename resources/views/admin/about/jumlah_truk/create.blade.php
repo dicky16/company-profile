@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('css')
 <!-- summernote -->
-<link rel="stylesheet" href="{{ asset('admin/plugins/summernote/summernote-bs4.min.css') }}">
+<link rel="stylesheet" href="{{ url('assets/admin/plugins/summernote/summernote-bs4.min.css') }}">
 @endsection
 @section('content')
 <div class="content-wrapper">
