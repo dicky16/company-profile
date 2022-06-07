@@ -140,10 +140,10 @@
 </head>
 
 <?php 
-    $servername = "localhost";
-    $database = "db_armas";
-    $username = "root";
-    $password = "";
+    $servername = env('DB_HOST');
+    $database = env('DB_DATABASE');
+    $username = env('DB_USERNAME');
+    $password = env('DB_PASSWORD');
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $database);
     // Check connection
