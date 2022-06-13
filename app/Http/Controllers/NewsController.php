@@ -12,44 +12,43 @@ class NewsController extends Controller
         $query = $request->get('query');
         if ($query) {
             $data = DB::table('berita')
-            ->join('user', 'user.id', '=', 'berita.id_user')
-            ->select('berita.*', 'user.nama')
-            ->where('rilis', 1)
-            ->where('berita.judul', 'like', '%'.$query.'%')
-            ->paginate(3);
+                ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+                ->select('berita.*', 'user.nama')
+                ->where('rilis', 1)
+                ->where('berita.judul', 'like', '%' . $query . '%')
+                ->paginate(3);
             $latest = DB::table('berita')->orderBy('id', 'desc')
-            ->join('user', 'user.id', '=', 'berita.id_user')
-            ->select('berita.*', 'user.nama')
-            ->where('rilis', 1)
-            ->limit(6)->get();
+                ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+                ->select('berita.*', 'user.nama')
+                ->where('rilis', 1)
+                ->limit(6)->get();
         } else {
             $data = DB::table('berita')
-            ->join('user', 'user.id', '=', 'berita.id_user')
-            ->select('berita.*', 'user.nama')
-            ->where('rilis', 1)
-            ->paginate(3);
+                ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+                ->select('berita.*', 'user.nama')
+                ->where('rilis', 1)
+                ->paginate(3);
             $latest = DB::table('berita')->orderBy('id', 'desc')
-            ->join('user', 'user.id', '=', 'berita.id_user')
-            ->select('berita.*', 'user.nama')
-            ->where('rilis', 1)
-            ->limit(6)->get();
+                ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+                ->select('berita.*', 'user.nama')
+                ->where('rilis', 1)
+                ->limit(6)->get();
         }
-        return view('user.news',compact('data', 'latest'));
-    } 
+        return view('user.news', compact('data', 'latest'));
+    }
 
     public function show($id)
     {
         $data = DB::table('berita')
-        ->where('berita.id', $id)
-        ->join('user', 'user.id', '=', 'berita.id_user')
-        ->select('berita.*', 'user.nama')
-        ->get();
+            ->where('berita.id', $id)
+            ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+            ->select('berita.*', 'user.nama')
+            ->get();
         $latest = DB::table('berita')->orderBy('id', 'desc')
-        ->join('user', 'user.id', '=', 'berita.id_user')
-        ->select('berita.*', 'user.nama')
-        ->where('rilis', 1)
-        ->limit(6)->get();
-        return view('user.detail-news',compact('data','latest'));
-        
+            ->leftJoin('user', 'user.id', '=', 'berita.id_user')
+            ->select('berita.*', 'user.nama')
+            ->where('rilis', 1)
+            ->limit(6)->get();
+        return view('user.detail-news', compact('data', 'latest'));
     }
 }

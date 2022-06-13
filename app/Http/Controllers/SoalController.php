@@ -68,7 +68,7 @@ class soalController extends Controller
         $idPelamar = DB::table('pelamar')->where('nik', $nik)->value('nik');
         $jawaban = DB::table('jawaban_pelamar')
             ->select('jawaban_pelamar.*', 'jawaban.score')
-            ->join('jawaban', 'jawaban_pelamar.id_jawaban', '=', 'jawaban.id')
+            ->leftJoin('jawaban', 'jawaban_pelamar.id_jawaban', '=', 'jawaban.id')
             ->where('id_pelamar', $idPelamar)->get();
         // dd($jawaban);
         for ($i = 0; $i < count($jawaban); $i++) {

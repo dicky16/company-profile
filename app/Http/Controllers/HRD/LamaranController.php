@@ -15,14 +15,30 @@ class LamaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $lamarans = DB::table('pelamar')
-            ->select('pelamar.*', 'lowongan_kerja.name as lowongan')
-            ->join('lowongan_kerja', 'pelamar.id_lowongan_kerja', '=', 'lowongan_kerja.id')
-            ->get();
-        $lowongans = DB::table('lowongan_kerja')->get();
-        return view('hrd.lamaran.index', ['lamarans' => $lamarans, 'lowongans' => $lowongans]);
+        $data = $request->all();
+        $status = $data['status'] ?? '';
+        if (isset($data['status'])) {
+            $lamarans = DB::table('pelamar')
+                ->select('pelamar.*', 'lowongan_kerja.name as lowongan')
+                ->leftJoin('lowongan_kerja', 'pelamar.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+                ->where('pelamar.status', '=', $data['status'])
+                ->orderBy('pelamar.id', 'desc')
+                ->get();
+        } else {
+            $lamarans = DB::table('pelamar')
+                ->select('pelamar.*', 'lowongan_kerja.name as lowongan')
+                ->leftJoin('lowongan_kerja', 'pelamar.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+                ->orderBy('pelamar.id', 'desc')
+                ->get();
+        }
+        $lowongans = DB::table('lowongan_kerja')->orderBy('id', 'desc')->get();
+        return view('hrd.lamaran.index', [
+            'lamarans' => $lamarans,
+            'lowongans' => $lowongans,
+            'status' => $status
+        ]);
     }
 
     /**
@@ -55,8 +71,8 @@ class LamaranController extends Controller
     public function show($id)
     {
         $lamaran = DB::table('pelamar')
-            ->select('pelamar.*', 'lowongan_kerja.name as lowongan')
-            ->join('lowongan_kerja', 'pelamar.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+            ->select('pelamar.*', 'lowongan_kerja.name as lowongan', 'lowongan_kerja.open as open', 'lowongan_kerja.close as close')
+            ->leftJoin('lowongan_kerja', 'pelamar.id_lowongan_kerja', '=', 'lowongan_kerja.id')
             ->where('pelamar.id', $id)->get();
         return view('hrd.lamaran.show', ['pelamar' => $lamaran[0]]);
     }

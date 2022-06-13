@@ -15,12 +15,13 @@ class LowonganController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
         $lowongans = DB::table('lowongan_kerja')
-        ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
-        ->join('department', 'lowongan_kerja.id_department', '=', 'department.id')
-        ->join('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
-        ->get();
+            ->select('lowongan_kerja.*', 'department.name as departemen', 'sub_departemen.name as sub_departemen')
+            ->leftJoin('department', 'lowongan_kerja.id_department', '=', 'department.id')
+            ->leftJoin('sub_departemen', 'lowongan_kerja.id_sub_department', '=', 'sub_departemen.id')
+            ->orderBy('lowongan_kerja.id', 'desc')
+            ->get();
         return view('hrd.lowongan.index', ['lowongans' => $lowongans]);
     }
 
@@ -43,18 +44,35 @@ class LowonganController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'id_department' => 'required',
+            'id_sub_department' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'open' => 'required|date',
+            'close' => 'required|date|after:open',
+            'cover' => 'required|image',
+        ];
+
         $lowongan = $request->all();
         unset($lowongan['_token']);
-        
+        $request->session()->put('id_department', $lowongan['id_department'] ?? '');
+        $request->session()->put('id_sub_department', $lowongan['id_sub_department'] ?? '');
+        $request->session()->put('name', $lowongan['name'] ?? '');
+        $request->session()->put('description', $lowongan['description'] ?? '');
+        $request->session()->put('open', $lowongan['open'] ?? '');
+        $request->session()->put('close', $lowongan['close'] ?? '');
+        $request->validate($rules);
+
         try {
             $cover = $request->file('cover');
-            $coverName = time().".".$cover->extension();
+            $coverName = time() . "." . $cover->extension();
             $destination = "assets/images/lowongan";
             $cover->move($destination, $coverName);
-           
-            
-           
-            $data = array_merge($lowongan, ['cover' => $destination."/".$coverName]);
+
+
+
+            $data = array_merge($lowongan, ['cover' => $destination . "/" . $coverName]);
             $idLowongan = DB::table('lowongan_kerja')->insertGetId($data);
             //store skill
             // $skill = $request->skill;
@@ -87,7 +105,7 @@ class LowonganController extends Controller
         $skills = explode(", ", $lowongan[0]->skill);
         return view('hrd.lowongan.show', compact('lowongan', 'skills'));
     }
-     
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -102,12 +120,12 @@ class LowonganController extends Controller
         if ($lowongan) {
             $subDepartemens = DB::table('sub_departemen')->where('id_department', $lowongan[0]->id_department)->get();
             // dd($subDepartemens);
-          
+
             return view('hrd.lowongan.edit', [
                 'lowongan' => $lowongan[0],
-                'departemens' => $departemens, 
+                'departemens' => $departemens,
                 'subDepartemens' => $subDepartemens,
-                
+
             ]);
         }
     }
@@ -121,18 +139,35 @@ class LowonganController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $rules = [
+            'id_department' => 'required',
+            'id_sub_department' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'open' => 'required|date',
+            'close' => 'required|date|after:open',
+        ];
+
         $lowongan = $request->all();
         unset($lowongan['_token'], $lowongan['_method'], $lowongan['cover']);
+        $request->session()->put('id_department', $lowongan['id_department'] ?? '');
+        $request->session()->put('id_sub_department', $lowongan['id_sub_department'] ?? '');
+        $request->session()->put('name', $lowongan['name'] ?? '');
+        $request->session()->put('description', $lowongan['description'] ?? '');
+        $request->session()->put('open', $lowongan['open'] ?? '');
+        $request->session()->put('close', $lowongan['close'] ?? '');
+        $request->validate($rules);
+
         if ($request->file('cover')) {
             try {
                 $cover = $request->file('cover');
-                $coverName = time().".".$cover->extension();
+                $coverName = time() . "." . $cover->extension();
                 $destination = "assets/images/lowongan";
                 $cover->move($destination, $coverName);
 
                 $coverOld = DB::table('lowongan_kerja')->where('id', $id)->value('cover');
                 File::delete($coverOld);
-               
+
                 // ]));
                 return redirect()->route('lowongan.index')->with('success', 'Update Lowongan Successfully');
             } catch (\Throwable $th) {
@@ -140,7 +175,7 @@ class LowonganController extends Controller
             }
         } else {
             try {
-               
+
                 DB::table('lowongan_kerja')->where('id', $id)->update(array_merge($lowongan));
                 return redirect()->route('lowongan.index')->with('success', 'Update Lowongan Successfully');
             } catch (\Throwable $th) {

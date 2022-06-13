@@ -34,11 +34,11 @@
                             <div class="card-tools">
                                 <div class="row">
                                     <div class="col">
-                                    <select name="" class="form-select" id="lowongan">
-                                        @foreach($lowongans as $lowongan)
-                                        <option value="{{$lowongan->id}}">{{$lowongan->name}}</option>
-                                        @endforeach
-                                    </select>
+                                        <select name="" class="form-select" id="lowongan" style="min-width: 200px;">
+                                            @foreach($lowongans as $lowongan)
+                                            <option value="{{$lowongan->id}}">{{$lowongan->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col">
                                         <a href="javascript:void(0)" id="exportExcel" class="btn btn-sm btn-info float-right">
@@ -49,15 +49,23 @@
                         </div>
                         <div class="card-body">
                             <table id="tbl" class="table table-bordered table-striped">
-                            <div class="row">
-                                <!-- <div class="col-2">
-                                    <select name="" class="form-select">
-                                        <option value="">Short</option>
-                                        <option value="">Diterima</option>
-                                    </select>
-                                </div> -->
-                            </div>
-                            <br>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <form action="{{ url('hrd/lamaran') }}" method="post" id="form-status">
+                                            @csrf
+                                            <div class="form-group m-0">
+                                                <label for="filter-status" class="m-0">Status</label>
+                                                <select id="filter-status" class="form-control form-control-sm" name="status">
+                                                    <option value="">Semua</option>
+                                                    <option value="verifikasi" {{ $status === 'verifikasi' ? 'selected' : '' }}>Belum Diverifikasi</option>
+                                                    <option value="diterima" {{ $status === 'diterima' ? 'selected' : '' }}>Tahap Selanjutnya</option>
+                                                    <option value="ditolak" {{ $status === 'ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <br>
                                 <thead>
                                     <tr>
                                         <th>NIK</th>
@@ -65,6 +73,7 @@
                                         <th>Umur</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Lowongan Kerja</th>
+                                        <th>Status</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -80,17 +89,22 @@
                                         <td>{{$lamaran->umur}}</td>
                                         <td>{{$lamaran->jenis_kelamin}}</td>
                                         <td>{{$lamaran->lowongan}}</td>
-                                        <td>
+                                        <td style="min-width: 150px;">
+                                            <select class="form-control form-control-sm select-status" name="status" data-lamaran="{{ $lamaran->id }}">
+                                                <option value=""></option>
+                                                <option class="text-info" value="verifikasi" {{ $lamaran->status == 'verifikasi' ? 'selected' : '' }}>Belum Diverifikasi</option>
+                                                <option class="text-success" value="diterima" {{ $lamaran->status == 'diterima' ? 'selected' : '' }}>Tahap Selanjutnya</option>
+                                                <option class="text-danger" value="ditolak" {{ $lamaran->status == 'ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                            </select>
+                                        </td>
+                                        <td style="min-width: 150px;">
                                             <form action="{{route('lamaran.destroy', $lamaran->id)}}" method="post">
                                                 @csrf
                                                 <a href="{{route('lamaran.show', $lamaran->id)}}"
-                                                class="btn btn-xs btn-warning" title="Show"><i class="fa fa-eye"></i>
+                                                class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i>
                                                 Show</a>
-                                                <!-- <a href="{{route('lamaran.edit', $lamaran->id)}}"
-                                                class="btn btn-xs btn-success" title="Edit"><i class="fa fa-edit"></i>
-                                                Edit</a> -->
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-xs btn-danger" title="Hapus"><i
+                                                <button type="submit" class="btn btn-sm btn-danger" title="Hapus"><i
                                                         class="fa fa-trash"></i> Hapus</button>
                                             </form>
                                         </td>
@@ -132,8 +146,11 @@
             orderCellsTop: true,
             fixedHeader: true
         } );
-        });
 
+        $('#filter-status').change(function(){
+            $('#form-status').submit();
+        })
+    });
 </script>
 <script>
     $("#exportExcel").on('click', function () {
@@ -145,6 +162,22 @@
         //     console.log(data);
         // });
     });
+</script>
+<script>
+    $('.select-status').change(function(){
+        var status = $(this).val();
+        var idPelamar = $(this).data('lamaran');
+        $.get("{{url('hrd/lamaran/status')}}/"+idPelamar,
+        {
+            status: status
+        },
+        function(data) {
+            console.log(data);
+            if(data.success) {
+                window.location.reload();
+            }
+        });
+    })
 </script>
 @if(session('success'))
 <script>

@@ -42,48 +42,64 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <select class="form-select" id="departemen" name="id_department" aria-label="Default select example" 
-                                    onchange="loadSubDepartemen(this)" required>
+                                    onchange="loadSubDepartemen(this)" >
                                         <option selected value="">Pilih Departemen</option>
                                         @foreach($departemens as $departemen)
-                                        <option value="{{$departemen->id}}" {{($lowongan->id_department == $departemen->id ? 'selected' : '')}}>{{$departemen->name}}</option>
+                                            <option value="{{$departemen->id}}" {{($lowongan->id_department == $departemen->id ? 'selected' : '')}}>{{$departemen->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('id_department')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-select sub-departemen" name="id_sub_department" aria-label="Default select example" required>
+                                    <select class="form-select sub-departemen" name="id_sub_department" aria-label="Default select example" >
                                         <option selected value="">Pilih Sub Departemen</option>
                                         @foreach($subDepartemens as $subDepartemen)
                                         <option value="{{$subDepartemen->id}}" {{($lowongan->id_sub_department == $subDepartemen->id ? 'selected' : '')}}>{{$subDepartemen->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('id_sub_department')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="isi">Lowongan Kerja</label>
-                                    <input type="text" class="form-control" value="{{$lowongan->name}}" name="name" required>
+                                    <input type="text" class="form-control" value="{{$lowongan->name}}" name="name" >
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="isi">Deskripsi</label>
-                                    <textarea id="summernote" name="description" required>{{$lowongan->description}}</textarea>
+                                    <textarea id="summernote" name="description" >{{$lowongan->description}}</textarea>
+                                    @error('description')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
                                         <label for="isi">Open</label>
-                                        <input type="date" class="form-control" value="{{$lowongan->open}}" name="open" required>
+                                        <input type="date" class="form-control" value="{{$lowongan->open}}" name="open" >
+                                        @error('open')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="col-4">
                                         <label for="isi">Close</label>
-                                        <input type="date" class="form-control" value="{{$lowongan->close}}" name="close" required>
+                                        <input type="date" class="form-control" value="{{$lowongan->close}}" name="close" >
+                                        @error('close')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <br>
-                               
-
-
-
-
                                 <div class="form-group">
                                     <label for="isi">Cover</label>
                                     <input type="file" class="form-control" name="cover" id="cover">
+                                    @error('cover')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -144,5 +160,14 @@
         'error'
     )
 </script>
+@endif
+@if ($errors->any())
+    <script>
+        Swal.fire(
+            'Error!',
+            'Tolong lengkapi dan check kembali data yang anda isi.',
+            'error'
+        )
+    </script>
 @endif
 @endpush

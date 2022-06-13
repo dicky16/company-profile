@@ -43,7 +43,7 @@ class PenghargaanController extends Controller
         $data = $request->all();
         unset($data['_token']);
         try {
-            $destination = "assets/images/penghargaan/penghargaan-".time().".".$request->file('gambar')->extension();
+            $destination = "assets/images/penghargaan/penghargaan-" . time() . "." . $request->file('gambar')->extension();
             move_uploaded_file($request->file('gambar'), $destination);
             DB::table('penghargaan')->insert(array_merge(
                 $data,
@@ -68,10 +68,10 @@ class PenghargaanController extends Controller
     public function show($id)
     {
         $penghargaan = DB::table('penghargaan')
-        ->select('penghargaan.*', 'user.nama')
-        ->join('user', 'penghargaan.id_user', '=', 'user.id')
-        ->where('penghargaan.id', $id)
-        ->get();
+            ->select('penghargaan.*', 'user.nama')
+            ->leftJoin('user', 'penghargaan.id_user', '=', 'user.id')
+            ->where('penghargaan.id', $id)
+            ->get();
         return view('admin.penghargaan.show', ['penghargaan' => $penghargaan]);
     }
 
@@ -84,10 +84,10 @@ class PenghargaanController extends Controller
     public function edit($id)
     {
         $penghargaan = DB::table('penghargaan')
-        ->select('penghargaan.*', 'user.nama')
-        ->join('user', 'penghargaan.id_user', '=', 'user.id')
-        ->where('penghargaan.id', $id)
-        ->get();
+            ->select('penghargaan.*', 'user.nama')
+            ->leftJoin('user', 'penghargaan.id_user', '=', 'user.id')
+            ->where('penghargaan.id', $id)
+            ->get();
         return view('admin.penghargaan.edit', ['penghargaan' => $penghargaan[0]]);
     }
 
@@ -106,20 +106,20 @@ class PenghargaanController extends Controller
         $rilis = ($request->rilis == "on") ? 1 : 0;
         if ($request->file('gambar')) {
             try {
-                $destination = "assets/images/penghargaan/berita-".time().".".$request->file('gambar')->extension();
+                $destination = "assets/images/penghargaan/berita-" . time() . "." . $request->file('gambar')->extension();
                 move_uploaded_file($request->file('gambar'), $destination);
                 $pathDelete = DB::table('penghargaan')->where('id', $id)->value('gambar');
                 File::delete($pathDelete);
                 DB::table('penghargaan')
-                ->where('id', $id)
-                ->update(array_merge(
-                    $data,
-                    [
-                        'gambar' => $destination,
-                        'updated_at' => Carbon::now(),
-                        'rilis' => $rilis
-                    ]
-                ));
+                    ->where('id', $id)
+                    ->update(array_merge(
+                        $data,
+                        [
+                            'gambar' => $destination,
+                            'updated_at' => Carbon::now(),
+                            'rilis' => $rilis
+                        ]
+                    ));
                 return redirect('admin/penghargaan')->with('success', 'Berhasil ubah data');
             } catch (\Throwable $th) {
                 return redirect()->back()->with('error', $th->getMessage());
@@ -128,8 +128,8 @@ class PenghargaanController extends Controller
             unset($data['gambar']);
             try {
                 DB::table('penghargaan')
-                ->where('id', $id)
-                ->update(array_merge($data, ['rilis' => $rilis, 'updated_at' => Carbon::now()]));
+                    ->where('id', $id)
+                    ->update(array_merge($data, ['rilis' => $rilis, 'updated_at' => Carbon::now()]));
                 return redirect('admin/penghargaan')->with('success', 'Berhasil ubah data');
             } catch (\Throwable $th) {
                 return redirect()->back()->with('error', $th->getMessage());

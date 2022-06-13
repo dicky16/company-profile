@@ -42,7 +42,6 @@
                                 <div class="form-group">
                                     <select class="form-select" aria-label="Default select example" name="id_lowongan_kerja" required>
                                         <option value="" selected>Pilih Jenis Soal</option>
-                                        <option value="0">Umum</option>
                                         @foreach($lowongans as $lowongan)
                                         <option value="{{$lowongan->id}}">{{$lowongan->name}}</option>
                                         @endforeach

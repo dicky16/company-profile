@@ -16,9 +16,9 @@ class SubDepartemenController extends Controller
     public function index()
     {
         $subDepartemens = DB::table('sub_departemen')
-        ->select('sub_departemen.*', 'department.name as departemen')
-        ->join('department', 'sub_departemen.id_department', '=', 'department.id')
-        ->orderBy('sub_departemen.id', 'desc')->get();
+            ->select('sub_departemen.*', 'department.name as departemen')
+            ->leftJoin('department', 'sub_departemen.id_department', '=', 'department.id')
+            ->orderBy('sub_departemen.id', 'desc')->get();
         return view('hrd.sub-departemen.index', ['subDepartemens' => $subDepartemens]);
     }
 
@@ -69,7 +69,7 @@ class SubDepartemenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         $departemens = DB::table('department')->get();
         $subDepartemen = DB::table('sub_departemen')->where('id', $id)->get();
         return view('hrd.sub-departemen.edit', ['subDepartemen' => $subDepartemen[0], 'departemens' => $departemens]);
@@ -89,8 +89,8 @@ class SubDepartemenController extends Controller
         unset($subDepartemen['_method']);
         try {
             DB::table('sub_departemen')
-            ->where('id', $id)
-            ->update($subDepartemen);
+                ->where('id', $id)
+                ->update($subDepartemen);
             return redirect()->route('sub-departemen.index')->with('success', 'Update Sub-Departemen Successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());

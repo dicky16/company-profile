@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('admin/login', 'Admin\PageController@login');
 Route::post('admin/login', 'Admin\UserController@login');
 Route::post('pesan', 'Admin\PesanController@store');
-Route::prefix('admin')->middleware(['middleware' => 'login'])->group(function() {
+Route::prefix('admin')->middleware(['middleware' => 'login'])->group(function () {
     Route::get('/', 'Admin\PageController@index');
     Route::get('profil', 'Admin\ProfilController@index');
     Route::post('profil', 'Admin\ProfilController@update');
@@ -30,14 +30,13 @@ Route::prefix('admin')->middleware(['middleware' => 'login'])->group(function() 
     Route::resource('slider', 'Admin\SliderController');
     Route::resource('gallery', 'Admin\GalleryController');
     Route::resource('pelanggan', 'Admin\PelangganKamiController');
-    Route::prefix('about')->group(function() {
+    Route::prefix('about')->group(function () {
         Route::resource('jumlah-truck', 'Admin\TrukController');
         Route::resource('jenis-truck', 'Admin\JenisTrukController');
     });
-    Route::prefix('pesan')->group(function() {
+    Route::prefix('pesan')->group(function () {
         Route::get('/', 'Admin\PesanController@index');
         Route::get('{id}', 'Admin\PesanController@show');
-            
     });
     Route::resource('ritase', 'Admin\RitaseController');
     Route::resource('penghargaan', 'Admin\PenghargaanController');
@@ -46,7 +45,7 @@ Route::prefix('admin')->middleware(['middleware' => 'login'])->group(function() 
 
 Route::get('logout', 'Admin\UserController@logout');
 
-Route::prefix('hrd')->middleware(['middleware' => 'login.hrd'])->group(function() {
+Route::prefix('hrd')->middleware(['middleware' => 'login.hrd'])->group(function () {
     Route::get('/', 'HRD\PageController@dashboard')->name('hrd.index');
     Route::resource('departemen', 'HRD\DepartemenController');
     Route::resource('sub-departemen', 'HRD\SubDepartemenController');
@@ -54,12 +53,14 @@ Route::prefix('hrd')->middleware(['middleware' => 'login.hrd'])->group(function(
     Route::resource('skill', 'HRD\SkillController');
     Route::resource('soal', 'HRD\SoalController');
     Route::resource('lamaran', 'HRD\LamaranController');
+    Route::post('lamaran', 'HRD\LamaranController@index');
     Route::get('lamaran/export/excel/{id}', 'HRD\LamaranController@export');
     Route::get('lamaran/status/{id}', 'HRD\LamaranController@putStatus');
     Route::get('profil', 'HRD\ProfileController@index');
     Route::post('profil', 'HRD\ProfileController@update');
     Route::get('logout', 'Admin\UserController@logout');
     Route::get('sub-departemen-data/{id}', 'HRD\LowonganController@getSubDepartements');
+    Route::any('laporan/lamaran', 'HRD\LaporanController@lamaran');
 });
 
 //about

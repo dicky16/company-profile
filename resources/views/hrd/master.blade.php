@@ -82,7 +82,23 @@
                         data-accordion="false">
                         @if(session('role') == 'hrd' || session('role') == 'direktur')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('hrd')}}" class="nav-link">
+                                <i class="nav-icon fas fa-chart-line"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{url('hrd/profil')}}" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    Profile
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="nav-link">
                                 <i class="nav-icon fas fa-sun"></i>
                                 <span class="dropdown-toggle" data-bs-toggle="collapse" href="#master"
                                     aria-expanded="false" aria-controls="collapseExample">
@@ -126,17 +142,25 @@
                         <li class="nav-item">
                             <a href="{{url('hrd/lamaran')}}" class="nav-link">
                                 <i class="nav-icon fas fa-file"></i>
-                                <p>
-                                    Lamaran
-                                </p>
+                                <p>Lamaran</p>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" class="nav-link">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <span class="dropdown-toggle" data-bs-toggle="collapse" href="#laporan"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    Laporan
+                                </span>
+                            </a>
+                            <ul class="collapse list-group" style="margin-left: 20px;" id="laporan">
+                                <a href="{{url('hrd/laporan/lamaran')}}" class="list-group-item list-group-item-action">Lamaran</a>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('hrd/logout')}}" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>
-                                    Sign Out
-                                </p>
+                                <p>Sign Out</p>
                             </a>
                         </li>
                         @elseif(session('role') == 'admin')
@@ -326,6 +350,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('scripts')
     <script>

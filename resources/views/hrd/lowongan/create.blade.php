@@ -41,44 +41,61 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <select class="form-select" id="departemen" name="id_department" aria-label="Default select example" 
-                                    onchange="loadSubDepartemen(this)" required>
-                                        <option selected>Pilih Departemen</option>
+                                    onchange="loadSubDepartemen(this)" >
+                                        <option value="" selected>Pilih Departemen</option>
                                         @foreach($departemens as $departemen)
-                                        <option value="{{$departemen->id}}">{{$departemen->name}}</option>
+                                            <option value="{{$departemen->id}}" {{ session('id_department') == $departemen->id ? 'selected' : ''}}>{{$departemen->name}}</option>
                                         @endforeach
                                     </select>
+                                    @error('id_department')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-select sub-departemen" name="id_sub_department" aria-label="Default select example" required>
-                                        <option selected>Pilih Sub Departemen</option>
+                                    <select class="form-select sub-departemen" name="id_sub_department" aria-label="Default select example" >
+                                        <option value="" selected>Pilih Sub Departemen</option>
                                     </select>
+                                    @error('id_sub_department')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="isi">Lowongan Kerja</label>
-                                    <input type="text" class="form-control" name="name" required>
+                                    <input type="text" class="form-control" name="name" value="{{ session('name') }}" >
+                                    @error('name')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="isi">Deskripsi</label>
-                                    <textarea id="summernote" name="description" required></textarea>
+                                    <textarea id="summernote" name="description" >{{ session('description') }}</textarea>
+                                    @error('description')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
                                         <label for="isi">Open</label>
-                                        <input type="date" class="form-control" name="open" required>
+                                        <input type="date" class="form-control" name="open" value="{{ session('open') }}" >
+                                        @error('open')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                     <div class="col-4">
                                         <label for="isi">Close</label>
-                                        <input type="date" class="form-control" name="close" required>
+                                        <input type="date" class="form-control" name="close" value="{{ session('close') }}" >
+                                        @error('close')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                                 <br>
-
-                                 
-
-
                                 <div class="form-group">
                                     <label for="isi">Cover</label>
-                                    <input type="file" class="form-control" name="cover" id="cover" required>
+                                    <input type="file" class="form-control" name="cover" id="cover" >
+                                    @error('cover')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -110,15 +127,6 @@
         })
     })
 </script>
-
-
-
-
-
-
-});
-
-</script>
 <script>
     function loadSubDepartemen(departemen) {
         var idDepartemen = departemen.value;
@@ -144,5 +152,14 @@
     )
 
 </script>
+@endif
+@if ($errors->any())
+    <script>
+        Swal.fire(
+            'Error!',
+            'Tolong lengkapi dan check kembali data yang anda isi.',
+            'error'
+        )
+    </script>
 @endif
 @endpush

@@ -16,10 +16,10 @@ class SkillController extends Controller
     public function index()
     {
         $skills = DB::table('skill')
-        ->select('skill.*', 'lowongan_kerja.name as lowongan')
-        ->join('lowongan_kerja', 'skill.id_lowongan_kerja', '=', 'lowongan_kerja.id')
-        ->orderBy('id', 'desc')
-        ->get();
+            ->select('skill.*', 'lowongan_kerja.name as lowongan')
+            ->leftJoin('lowongan_kerja', 'skill.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+            ->orderBy('id', 'desc')
+            ->get();
         return view('hrd.skill.index', ['skills' => $skills]);
     }
 
@@ -45,8 +45,8 @@ class SkillController extends Controller
         $idLowongan = $request->id_lowongan;
         $skill = $request->skill;
         $skillString = "";
-        for ($i=0; $i < count($skill); $i++) { 
-            $skillString .= $skill[$i].', ';
+        for ($i = 0; $i < count($skill); $i++) {
+            $skillString .= $skill[$i] . ', ';
         }
         $skillString = substr($skillString, 0, -2);
         try {
@@ -81,10 +81,10 @@ class SkillController extends Controller
     {
         $lowongans = DB::table('lowongan_kerja')->get();
         $skill = DB::table('skill')
-        ->select('skill.*', 'lowongan_kerja.name as lowongan')
-        ->join('lowongan_kerja', 'skill.id_lowongan_kerja', '=', 'lowongan_kerja.id')
-        ->orderBy('id', 'desc')
-        ->get();
+            ->select('skill.*', 'lowongan_kerja.name as lowongan')
+            ->leftJoin('lowongan_kerja', 'skill.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+            ->orderBy('id', 'desc')
+            ->get();
         return view('hrd.skill.edit', ['skill' => $skill[0], 'lowongans' => $lowongans]);
     }
 
@@ -100,17 +100,17 @@ class SkillController extends Controller
         $idLowongan = $request->id_lowongan;
         $skill = $request->skill;
         $skillString = "";
-        for ($i=0; $i < count($skill); $i++) { 
-            $skillString .= $skill[$i].', ';
+        for ($i = 0; $i < count($skill); $i++) {
+            $skillString .= $skill[$i] . ', ';
         }
         $skillString = substr($skillString, 0, -2);
         try {
             DB::table('skill')
-            ->where('id', $id)
-            ->update([
-                'id_lowongan_kerja' => $idLowongan,
-                'skill' => $skillString
-            ]);
+                ->where('id', $id)
+                ->update([
+                    'id_lowongan_kerja' => $idLowongan,
+                    'skill' => $skillString
+                ]);
             return redirect()->route('skill.index')->with('success', 'Add Skill Successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());

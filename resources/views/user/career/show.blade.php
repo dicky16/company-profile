@@ -58,9 +58,10 @@
                         <br>
                         {!! $lowonganKerja->description !!}
                     </p>
-
                     <a href="{{url('career/form')}}/{{$lowonganKerja->id}}"> <button type="button"
-                            class="btn btn-primary btn-lg btn-block">Apply Now</button></a>
+                            class="btn btn-primary btn-lg btn-block" 
+                            {{ new DateTime() >= new DateTime($lowonganKerja->close) ? 'disabled' : '' }}>Apply Now</button></a>
+                    <p class="text-center text-danger">{{ new DateTime() >= new DateTime($lowonganKerja->close) ? 'Pendaftaran sudah ditutup' : '' }}</p>
 
                 </div>
             </div>

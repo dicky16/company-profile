@@ -43,15 +43,15 @@ class BeritaController extends Controller
         $rilis = ($request->rilis == "on") ? 1 : 0;
         unset($data['_token']);
         try {
-            $destination = "assets/images/berita/berita-".time().".".$request->file('gambar')->extension();
+            $destination = "assets/images/berita/berita-" . time() . "." . $request->file('gambar')->extension();
             move_uploaded_file($request->file('gambar'), $destination);
             DB::table('berita')->insert(array_merge(
                 $data,
                 [
-                'gambar' => $destination,
-                'id_user' => session('id'),
-                'rilis' => $rilis
-            ]
+                    'gambar' => $destination,
+                    'id_user' => session('id'),
+                    'rilis' => $rilis
+                ]
             ));
             return redirect('admin/berita')->with('sukses', 'Berhasil tambah data');
         } catch (\Throwable $th) {
@@ -68,10 +68,10 @@ class BeritaController extends Controller
     public function show($id)
     {
         $berita = DB::table('berita')
-        ->select('berita.*', 'user.nama')
-        ->join('user', 'berita.id_user', '=', 'user.id')
-        ->where('berita.id', $id)
-        ->get();
+            ->select('berita.*', 'user.nama')
+            ->leftJoin('user', 'berita.id_user', '=', 'user.id')
+            ->where('berita.id', $id)
+            ->get();
         return view('admin.berita.show', ['berita' => $berita]);
     }
 
@@ -84,10 +84,10 @@ class BeritaController extends Controller
     public function edit($id)
     {
         $berita = DB::table('berita')
-        ->select('berita.*', 'user.nama')
-        ->join('user', 'berita.id_user', '=', 'user.id')
-        ->where('berita.id', $id)
-        ->get();
+            ->select('berita.*', 'user.nama')
+            ->leftJoin('user', 'berita.id_user', '=', 'user.id')
+            ->where('berita.id', $id)
+            ->get();
         return view('admin.berita.edit', ['berita' => $berita]);
     }
 
@@ -106,20 +106,20 @@ class BeritaController extends Controller
         $rilis = ($request->rilis == "on") ? 1 : 0;
         if ($request->file('gambar')) {
             try {
-                $destination = "assets/images/berita/berita-".time().".".$request->file('gambar')->extension();
+                $destination = "assets/images/berita/berita-" . time() . "." . $request->file('gambar')->extension();
                 move_uploaded_file($request->file('gambar'), $destination);
                 $pathDelete = DB::table('berita')->where('id', $id)->value('gambar');
                 File::delete($pathDelete);
                 DB::table('berita')
-                ->where('id', $id)
-                ->update(array_merge(
-                    $data,
-                    [
-                        'gambar' => $destination,
-                        'updated_at' => Carbon::now(),
-                        'rilis' => $rilis
-                    ]
-                ));
+                    ->where('id', $id)
+                    ->update(array_merge(
+                        $data,
+                        [
+                            'gambar' => $destination,
+                            'updated_at' => Carbon::now(),
+                            'rilis' => $rilis
+                        ]
+                    ));
                 return redirect('admin/berita')->with('sukses', 'Berhasil ubah data');
             } catch (\Throwable $th) {
                 return redirect()->back()->with('error', $th->getMessage());
@@ -128,8 +128,8 @@ class BeritaController extends Controller
             unset($data['gambar']);
             try {
                 DB::table('berita')
-                ->where('id', $id)
-                ->update(array_merge($data, ['rilis' => $rilis, 'updated_at' => Carbon::now()]));
+                    ->where('id', $id)
+                    ->update(array_merge($data, ['rilis' => $rilis, 'updated_at' => Carbon::now()]));
                 return redirect('admin/berita')->with('sukses', 'Berhasil ubah data');
             } catch (\Throwable $th) {
                 dd($th->getMessage());

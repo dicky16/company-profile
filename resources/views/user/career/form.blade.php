@@ -206,10 +206,15 @@
                     <img src="https://via.placeholder.com/150" id="preview" width="300" height="400">
                 </div>
                 <div class="row justify-content-center mt10">
-                    <div class="2">
-                        <input type="file" class="form-control" accept="image/*" onchange="previewImage(event)"
-                            name="foto" >
+                    <div class="d-flex justify-content-center">
+                        <input type="file" class="form-control" accept="image/*" onchange="previewImage(event)" name="foto" >
+                        <b class="text-danger ml-2">*</b>
                     </div>
+                </div>
+                <div class="row justify-content-center">
+                    @error('foto')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
             <div class="page-content mt10">
@@ -221,57 +226,83 @@
                                 <!-- <form action="#"> -->
 
                                 <ul class="list-unstyled job-registration">
-                                    <li><strong>Nama lengkap <i class="text-danger">*</i></strong><input type="text" name="nama_lengkap" 
-                                            placeholder="[khansa lungit]" value="{{session('nama_lengkap')}}">
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Nama lengkap <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" name="nama_lengkap" placeholder="Khansa Lungit" value="{{session('nama_lengkap')}}">
                                             @error('nama_lengkap')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>Tanggal lahir <i class="text-danger">*</i></strong><input type="date"
-                                            value="{{session('tanggal_lahir')}}" name="tanggal_lahir"
-                                            placeholder="[25/06/2002]" >
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Tanggal lahir <i class="text-danger">*</i></strong>
+                                            <input type="date" class="form-control" value="{{session('tanggal_lahir')}}" name="tanggal_lahir" placeholder="[25/06/2002]" >
                                             @error('tanggal_lahir')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>NIK <i class="text-danger">*</i></strong><input type="text" name="nik" value="{{session('nik')}}"
-                                            placeholder="[1099909990999099]" >
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>NIK <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" name="nik" value="{{session('nik')}}" placeholder="3201234567891011" >
                                             @error('nik')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>Umur <i class="text-danger">*</i></strong><input type="text" name="umur" value="{{session('umur')}}"
-                                            placeholder="[18 tahun]" >
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Umur <i class="text-danger">*</i></strong>
+                                            <div class="input-group" style="flex-wrap: nowrap;">
+                                                <input type="number" class="form-control" name="umur" style="border: 1px solid black;" placeholder="18" aria-label="Umur" aria-describedby="umur">
+                                                <span class="input-group-text" id="umur" style="border: 1px solid black; border-left: none; border-radius: 0;">Tahun</span>
+                                            </div>
                                             @error('umur')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>Gender <i class="text-danger">*</i></strong>
-                                        <select class="form-select" name="jenis_kelamin" id="" >
-                                            <option value="Perempuan">Perempuan</option>
-                                            <option value="Laki-laki">Laki-laki</option>
-                                        </select>
-                                        @error('jenis_kelamin')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Gender <i class="text-danger">*</i></strong>
+                                            <select class="form-control" name="jenis_kelamin" id="" >
+                                                <option value="Laki-laki">Laki-laki</option>
+                                                <option value="Perempuan">Perempuan</option>
+                                            </select>
+                                            @error('jenis_kelamin')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>No Telpon <i class="text-danger">*</i></strong><input type="text" name="no_tlp" 
-                                        placeholder="[082262200182]" value="{{session('no_tlp')}}">
-                                        @error('no_tlp')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>No Telpon <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" name="no_tlp" placeholder="08123456789" value="{{session('no_tlp')}}">
+                                            @error('no_tlp')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>E-mail <i class="text-danger">*</i></strong><input type="text" name="email" 
-                                        placeholder="[admin@gmail.com]" value="{{session('email')}}">
-                                        @error('email')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>E-mail <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" name="email" placeholder="khansalungit@gmail.com" value="{{session('email')}}">
+                                            @error('email')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </li>
-                                    <li><strong>Link Sosial media <i class="text-danger">*</i></strong><input type="text" 
-                                        placeholder="[admin.biolinky.com]" name="link_sosmed" value="{{session('link_sosmed')}}">
-                                        @error('link_sosmed')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Link Sosial media <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" placeholder="khansa.biolinky.com" name="link_sosmed" value="{{session('link_sosmed')}}">
+                                            @error('link_sosmed')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </li>
 
                                 </ul>
@@ -288,85 +319,132 @@
                                 <!-- <form action="#"> -->
                                 <!-- <div class="form-banner-button"> -->
                                 <ul>
-                                    <li><strong>Sudah pernah bekerja? <i class="text-danger">*</i></strong>
-                                        <select class="form-select" name="sudah_bekerja" onchange="hideStatusKerja();" id="statusKerja" >
-                                            <option value="iya">Pernah</option>
-                                            <option value="belum">Belum</option>
-                                        </select>
-                                        @error('sudah_bekerja')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                    <li>
+                                        <div class="form-group mb-2">
+                                            <strong>Pendidikan terakhir <i class="text-danger">*</i></strong>
+                                            <select class="form-control" name="pendidikan_terakhir" id="pendidikanTerakhir">
+                                                <option value="smp" {{ session('pendidikan_terakhir') == 'smp' ? 'selected' : '' }}>SMP</option>
+                                                <option value="sma" {{ session('pendidikan_terakhir') == 'sma' ? 'selected' : '' }}>SMA</option>
+                                                <option value="d1" {{ session('pendidikan_terakhir') == 'd1' ? 'selected' : '' }}>D1</option>
+                                                <option value="d2" {{ session('pendidikan_terakhir') == 'd2' ? 'selected' : '' }}>D2</option>
+                                                <option value="d3" {{ session('pendidikan_terakhir') == 'd3' ? 'selected' : '' }}>D3</option>
+                                                <option value="s1" {{ session('pendidikan_terakhir') == 's1' ? 'selected' : '' }}>S1</option>
+                                            </select>
+                                            @error('pendidikan_terahir')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
                                     </li>
-                                    <li class="status"><strong>Terakhir bekerja di PT?</strong><input type="text"
-                                            placeholder="[PT.Teknologi]" value="{{session('terakhir_bekerja')}}"
-                                            name="terakhir_bekerja"></li>
-                                    <li class="status"><strong>Berapa tahun anda bekerja?</strong><input type="text"
-                                            placeholder="[3 tahun]" name="lama_bekerja"
-                                            value="{{session('lama_bekerja')}}"></li>
-                                    <li class="status"><strong>Jabatan terakhir?</strong><input type="text"
-                                            placeholder="[Staff acounting]" name="jabatan_terakhir"
-                                            value="{{session('jabatan_terakhir')}}"></li> </br>
                                     <li>
-                                    <li class="status"><strong>Gaji terakhir?</strong><input type="text" placeholder="[55000000]"
-                                            name="gaji_terakhir" value="{{session('gaji_terakhir')}}"></li> </br>
+                                        <div class="form-group mb-2">
+                                            <strong>Sudah pernah bekerja? <i class="text-danger">*</i></strong>
+                                            <select class="form-control" name="sudah_bekerja" onchange="hideStatusKerja();" id="statusKerja" >
+                                                <option value="iya" {{ session('sudah_bekerja') == 'iya' ? 'selected' : '' }}>Pernah</option>
+                                                <option value="belum" {{ session('sudah_bekerja') == 'belum' ? 'selected' : '' }}>Belum</option>
+                                            </select>
+                                            @error('sudah_bekerja')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </li>
+                                    <li class="status">
+                                        <div class="form-group mb-2">
+                                            <strong>Terakhir bekerja di PT? <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" placeholder="PT. Teknologi Maju" value="{{session('terakhir_bekerja')}}" name="terakhir_bekerja">
+                                        </div>
+                                    </li>
+                                    <li class="status">
+                                        <div class="form-group mb-2">
+                                            <strong>Berapa tahun anda bekerja? <i class="text-danger">*</i></strong>
+                                            <div class="input-group" style="flex-wrap: nowrap;">
+                                                <input type="number" class="form-control" name="lama_bekerja" style="border: 1px solid black;" placeholder="1.5" aria-label="Umur" aria-describedby="lama_bekerja">
+                                                <span class="input-group-text" id="lama_bekerja" style="border: 1px solid black; border-left: none; border-radius: 0;">Tahun</span>
+                                            </div>
+                                            @error('lama_bekerja')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </li>
+                                    <li class="status">
+                                        <div class="form-group mb-2">
+                                            <strong>Jabatan terakhir? <i class="text-danger">*</i></strong>
+                                            <input type="text" class="form-control" placeholder="Staff acounting" name="jabatan_terakhir" value="{{session('jabatan_terakhir')}}">
+                                        </div>
+                                    </li>
+                                    <li class="status">
+                                        <div class="form-group mb-2">
+                                            <strong>Gaji terakhir? <i class="text-danger">*</i></strong>
+                                            <div class="input-group" style="flex-wrap: nowrap;">
+                                                <span class="input-group-text" id="gaji_terakhir" style="border: 1px solid black; border-right: none; border-radius: 0;">Rp</span>
+                                                <input type="number" class="form-control" name="gaji_terakhir" style="border: 1px solid black;" placeholder="5000000" aria-label="Umur" aria-describedby="gaji_terakhir">
+                                            </div>
+                                            @error('gaji_terakhir')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </li>
                                     <li>
-                                        <form id="form1" name="form1" method="post" action="">
-                                        <strong>Upload CV Anda <i class="text-danger">*</i></strong>
-                                        <input class="form-control" type="file" name="cv" >
-                                        @error('cv')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </li> </br>
+                                        <div class="form-group mb-2">
+                                            <form id="form1" name="form1" method="post" action="">
+                                                <strong>Upload CV Anda <i class="text-danger">*</i></strong>
+                                                <input class="form-control" type="file" name="cv" accept="application/pdf">
+                                                @error('cv')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </form>
+                                        </div>
+                                    </li> 
+                                    <br>
+                                    <p class="m-0 pl-4 pb-2"><b>Soal</b><b class="text-danger"> *</b></p>
                                     <ol start="1" type="1">
-                                                <li>Four Kids,Oliver,Rachel,Sarah,and Todd,were playing upstairs when
-                                                    you heard a loud crash.you ran to the room and found
-                                                    a broken vase on the floor.when you questioned the kids on who broke
-                                                    the vase,they said: <br> "it wasn't me!"screamed oliver <br>
-                                                    "it was Oliver!"yalled Rachel <br>"No,it was Rachel,"blamed Sarah
-                                                    <br>"Rachel is a liar,"said Todd <br>Patrick,the babysitter who
-                                                    liked logic puzzles,told you that only one of them was telling the
-                                                    truth.Which of the kids broke the vase?</li>
-                                                <br>
-
-
-                                                <ol start="1" type="a">
-                                                    <i>
-                                                        <li>
-                                                            <div class="form-group row align-items-center">
-                                                                <label for="pilihan-1" class="col-sm-4 col-form-label">Oliver</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="radio" name="nilai_soal" id="pilihan-1" value="a">
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-group row align-items-center">
-                                                                <label for="pilihan-2" class="col-sm-4 col-form-label">Rachel</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="radio" name="nilai_soal" id="pilihan-2" value="b">
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-group row align-items-center">
-                                                                <label for="pilihan-3" class="col-sm-4 col-form-label">Sarah</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="radio" name="nilai_soal" id="pilihan-3" value="c">
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="form-group row align-items-center">
-                                                                <label for="pilihan-4" class="col-sm-4 col-form-label">Tod</label>
-                                                                <div class="col-sm-2">
-                                                                    <input type="radio" name="nilai_soal" id="pilihan-4" value="d">
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                    </i>
-                                                </ol>
-                                                <br>
-                                                <br>
+                                        <li>Four Kids,Oliver,Rachel,Sarah,and Todd,were playing upstairs when
+                                            you heard a loud crash.you ran to the room and found
+                                            a broken vase on the floor.when you questioned the kids on who broke
+                                            the vase,they said: <br> "it wasn't me!"screamed oliver <br>
+                                            "it was Oliver!"yalled Rachel <br>"No,it was Rachel,"blamed Sarah
+                                            <br>"Rachel is a liar,"said Todd <br>Patrick,the babysitter who
+                                            liked logic puzzles,told you that only one of them was telling the
+                                            truth.Which of the kids broke the vase?
+                                        </li>
+                                        <br>
+                                        <ol start="1" type="a">
+                                            <i>
+                                                <li>
+                                                    <div class="form-group mb-2 row align-items-center">
+                                                        <label for="pilihan-1" class="col-sm-4 col-form-label">Oliver</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="radio" name="nilai_soal" id="pilihan-1" value="a" {{ session('nilai_soal') === 'a' ? 'checked' : '' }}>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group mb-2 row align-items-center">
+                                                        <label for="pilihan-2" class="col-sm-4 col-form-label">Rachel</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="radio" name="nilai_soal" id="pilihan-2" value="b" {{ session('nilai_soal') === 'b' ? 'checked' : '' }}>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group mb-2 row align-items-center">
+                                                        <label for="pilihan-3" class="col-sm-4 col-form-label">Sarah</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="radio" name="nilai_soal" id="pilihan-3" value="c" {{ session('nilai_soal') === 'c' ? 'checked' : '' }}>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-group mb-2 row align-items-center">
+                                                        <label for="pilihan-4" class="col-sm-4 col-form-label">Tod</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="radio" name="nilai_soal" id="pilihan-4" value="d" {{ session('nilai_soal') === 'd' ? 'checked' : '' }}>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </i>
+                                        </ol>
+                                    </ol>
+                                    <br>
                                 </ul>
                                 <div class="preview-import pull-left">
 

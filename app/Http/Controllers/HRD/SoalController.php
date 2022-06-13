@@ -16,17 +16,18 @@ class SoalController extends Controller
     public function index()
     {
         $dataSoals = DB::table('soal')
-        ->select('soal.*', 'lowongan_kerja.name as lowongan')
-        ->join('lowongan_kerja', 'soal.id_lowongan_kerja', '=', 'lowongan_kerja.id')
-        ->get();
+            ->select('soal.*', 'lowongan_kerja.name as lowongan')
+            ->leftJoin('lowongan_kerja', 'soal.id_lowongan_kerja', '=', 'lowongan_kerja.id')
+            ->orderBy('soal.id', 'desc')
+            ->get();
         if (count($dataSoals) > 0) {
-            for ($i=0; $i < count($dataSoals); $i++) {
+            for ($i = 0; $i < count($dataSoals); $i++) {
                 $soals[] = [
-                'id' => $dataSoals[$i]->id,
-              'lowongan' => $dataSoals[$i]->lowongan,
-              'pertanyaan' => $dataSoals[$i]->pertanyaan,
-              'jawaban' => DB::table('jawaban')->where('id_soal', $dataSoals[$i]->id)->get()
-            ];
+                    'id' => $dataSoals[$i]->id,
+                    'lowongan' => $dataSoals[$i]->lowongan,
+                    'pertanyaan' => $dataSoals[$i]->pertanyaan,
+                    'jawaban' => DB::table('jawaban')->where('id_soal', $dataSoals[$i]->id)->get()
+                ];
             }
             return view('hrd.soal.index', ['soals' => $soals]);
         }
@@ -40,7 +41,7 @@ class SoalController extends Controller
      */
     public function create()
     {
-        $lowongans = DB::table('lowongan_kerja')->get();
+        $lowongans = DB::table('lowongan_kerja')->orderBy('id', 'desc')->get();
         return view('hrd.soal.create', ['lowongans' => $lowongans]);
     }
 
@@ -58,7 +59,7 @@ class SoalController extends Controller
         try {
             $id = DB::table('soal')->insertGetId(['id_lowongan_kerja' => $idLowongaKerja, 'pertanyaan' => $pertanyaan]);
 
-            for ($i=0; $i < count($request->pilihan); $i++) { 
+            for ($i = 0; $i < count($request->pilihan); $i++) {
                 $jawaban[] = [
                     'pilihan' => $request->pilihan[$i],
                     'jawaban' => $request->jawaban[$i],
@@ -82,7 +83,6 @@ class SoalController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -95,7 +95,7 @@ class SoalController extends Controller
     {
         $lowongans = DB::table('lowongan_kerja')->get();
         $soal = DB::table('soal')->where('id', $id)->get();
-        $jawabans =DB::table('jawaban')->where('id_soal', $soal[0]->id)->get();
+        $jawabans = DB::table('jawaban')->where('id_soal', $soal[0]->id)->get();
         // dd($jawaban);
         return view('hrd.soal.edit', compact('lowongans', 'soal', 'jawabans'));
     }
@@ -114,10 +114,10 @@ class SoalController extends Controller
 
         try {
             DB::table('soal')
-            ->where('id', $id)
-            ->update(['id_lowongan_kerja' => $idLowongaKerja, 'pertanyaan' => $pertanyaan]);
+                ->where('id', $id)
+                ->update(['id_lowongan_kerja' => $idLowongaKerja, 'pertanyaan' => $pertanyaan]);
 
-            for ($i=0; $i < count($request->pilihan); $i++) { 
+            for ($i = 0; $i < count($request->pilihan); $i++) {
                 $jawaban[] = [
                     'pilihan' => $request->pilihan[$i],
                     'jawaban' => $request->jawaban[$i],
